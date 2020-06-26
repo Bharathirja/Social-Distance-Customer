@@ -4,6 +4,8 @@ import Login from './customerapp/Login';
 import Listscroll from './reactnative-tut/listscroll'
 import Inlinestyle from './reactnative-tut/inlinestyle';
 import Otpscreen from './customerapp/otpscreen';
+// import Navigator from '../routes/homestack';
+import {Router, Scene} from 'react-native-router-flux';
 
 export default function App() {
   // const[name,setName] = useState('pappugroup');
@@ -15,8 +17,28 @@ export default function App() {
 
   // }
   return (
-    <View style={styles.container}> 
-    <Otpscreen/>
+    <View style={[styles.container,{flex:1}]}> 
+     <Router>
+      <Scene key="root">
+
+        <Scene
+        key="login"
+        component={Login}
+        title="login"
+        initial
+        />
+
+        <Scene
+        key="otpscreen"
+        component={Otpscreen}
+        title="otp registration"
+        />  
+
+      </Scene>
+    </Router>
+
+    {/* <Navigator/> */}
+    {/* <Otpscreen/>  */}
     {/* <Login/> */}
     {/* <Listscroll/> */}
     {/* <Inlinestyle/> */}
@@ -37,10 +59,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#4169e1',
-    justifyContent: 'center',
-    // paddingLeft: 60,
+    // flex: 1,
+    // justifyContent: 'center',
+    // // paddingLeft: 60,
     // paddingRight: 60,
 
     // alignItems: 'center',

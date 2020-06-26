@@ -5,26 +5,52 @@ import { StyleSheet,
     Button,
     TextInput,
     TouchableOpacity,} from 'react-native';
-    
+import {Actions} from 'react-native-router-flux'
 
 export class Login extends Component {
     render() {
         return (
+            <View style={[styles.container]}>
+                <View style={styles.title}>
+                    <Text style={{color:'white',fontSize:20}}>PG Analytics</Text>
+                </View>
             <View style={styles.login}>
                 <Text style={styles.header}>Login</Text>
                 <TextInput style={styles.textinput} placeholder = 'your mobile number' selectionColor='white'
                keyboardType='numeric' underlineColorAndroid={'transparent'}/>
-                <TouchableOpacity style={styles.Button}>
-                            <Text style={styles.btntext}>GO</Text>
+                <TouchableOpacity style={styles.Button} onPress={()=>Actions.otpscreen()}>
+                            <Text style={styles.btntext} >GO</Text>
                 </TouchableOpacity>
+                </View>
                 </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container:{
+    flex: 1,
+    backgroundColor: '#4169e1',
+    justifyContent: 'center',
+    },
+    title:{
+        height:'10%',
+        width:'100%',
+        padding:40,
+        justifyContent:"center",
+        alignItems:"center",
+        fontSize:40,
+        color:'white',
+        // backgroundColor:'red',
+        fontWeight:'bold'
+        
+        
+
+    },
     login: {
       alignSelf:'stretch',
+      padding:20
+
    
     },
     header:{

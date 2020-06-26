@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text } from 'react-native'
+import { View, TextInput, Text,StyleSheet} from 'react-native'
 
 export class otpscreen extends Component {
 
@@ -20,9 +20,12 @@ export class otpscreen extends Component {
         const {pin1,pin2,pin3,pin4}=this.state
      
         return (
-           <View style={{flex:1}}>
-
-               <View style={{flex:0.6,justifyContent:"space-evenly",flexDirection:'row'}}>
+           <View style={styles.container}>
+              <View style={{width: '100%',marginTop:10}}>
+     <Text style={{width: '100%',textAlign: 'center'}} >Enter Your OTP Number</Text>
+</View>
+               <View style={{flex:0.6,justifyContent:"space-evenly",flexDirection:'row',marginBottom:100}}>
+                       {/* <Text style={{alignContent:'center'}}>Enter Your OTP registration Number</Text> */}
                    <TextInput
                    ref={"pin1ref"}
                    maxLength={1}
@@ -79,5 +82,14 @@ export class otpscreen extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        marginTop:200
+     
+
+    },
+});
 
 export default otpscreen
