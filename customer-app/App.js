@@ -6,6 +6,9 @@ import Inlinestyle from './reactnative-tut/inlinestyle';
 import Otpscreen from './customerapp/otpscreen';
 // import Navigator from '../routes/homestack';
 import {Router, Scene} from 'react-native-router-flux';
+import Registerscreen from './customerapp/registerscreen';
+import Menutabscreen from './customerapp/menutabscreen';
+import Homeprofile from './customerapp/homeprofile';
 
 export default function App() {
   // const[name,setName] = useState('pappugroup');
@@ -33,8 +36,25 @@ export default function App() {
         component={Otpscreen}
         title="otp registration"
         />  
+             <Scene
+        key="registrationform"
+        component={Registerscreen}
+        title="RegistrationForm"
+        /> 
+                <Scene
+        key="menu"
+        component={Homeprofile}
+        // title="Home"
+        /> 
+
+<Scene
+        key="menutab"
+        component={Menutabscreen}
+        title="tab"
+        /> 
 
       </Scene>
+
     </Router>
 
     {/* <Navigator/> */}

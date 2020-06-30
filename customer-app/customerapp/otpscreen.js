@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { View, TextInput, Text,StyleSheet} from 'react-native'
+import {Actions} from 'react-native-router-flux'
+
 
 export class otpscreen extends Component {
 
@@ -71,6 +73,8 @@ export class otpscreen extends Component {
                        this.setState({pin4:pin4})
                        if(this.pin4!=""){
                            alert("otp registration successful")
+                           this.props.navigation.push('menu');
+                        //    {()=>Actions.registrationform()}
                        }
                     }}
                    style={{backgroundColor:'white',fontWeight:'600',alignSelf:"center",fontSize:20,height:55,width:'10%',borderWidth:0.5,borderRadius:10, borderColor:'grey',textAlign:'center', alignContent:'center',alignItems:'center',}}
