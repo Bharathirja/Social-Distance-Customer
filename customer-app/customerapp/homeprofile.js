@@ -27,7 +27,7 @@ import {Menutabscreen} from '../customerapp/menutabscreen'
 function HomeScreen(){
     
     return (
-      <Dashboard/>
+      <Dashboard />
     )
 
 }
@@ -86,7 +86,7 @@ showPicker = ()=>{
 
 const { width } = Dimensions.get("window");
 
-export class BookingScreen extends Component {
+export class BookingScreen extends Component {p
     state = {
         active: 0,
         xTabOne: 0,

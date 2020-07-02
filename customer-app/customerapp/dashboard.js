@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
+import 'react-native-gesture-handler';
 import {StyleSheet,View,Text,Image, TouchableOpacity,Alert} from 'react-native';
-import {Welcome} from '../customerapp/welcome';
-import {Offer} from '../customerapp/offer';
-import {Notification} from '../customerapp/notification';
-import { Router,Scence,Actions} from 'react-native-router-flux';
+import Welcome from '../customerapp/welcome';
+import Offer from '../customerapp/offer';
+import Notification from '../customerapp/notification';
+import { createAppContainer, } from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator} from '@react-navigation/stack';
+// import { StackNavigator } from "react-navigation";
+import {Actions} from "react-native-router-flux";
 
 export class Dashboard extends Component {
+    constructor() {
+        super();
+    
+      }
+   
     render() {
-        const navigation = this.props.navigation
+          
+        // const {navigate} =this.props.navigation;
         return (
             <View>
           <View style={styles.card}>
               <View style={styles.cardContent} >
                   <View >
-                  <Image
+                      <TouchableOpacity 
+                       onPress={()=>Actions.welcome()}>
+
+                      <Image
               source={require("../assets/welcome.jpg")}
               style={{
                 height: 200,
@@ -23,6 +38,8 @@ export class Dashboard extends Component {
               }}
       
             />
+                      </TouchableOpacity>
+           
               {/* onPress={() => this.props.navigation.push(<Welcome/>)}   */}
 
                   </View>
@@ -32,7 +49,8 @@ export class Dashboard extends Component {
               <View style={styles.card}>
               <View style={styles.cardContent}>
               <View>
-                  <TouchableOpacity onPress={()=>Offer}>
+                  <TouchableOpacity 
+                   onPress={()=>Actions.offer()}>
                   <Image
               source={require("../assets/onlyoffer.jpg")}
               style={{
@@ -50,6 +68,7 @@ export class Dashboard extends Component {
           <View style={styles.card}>
               <View style={styles.cardContent}>
               <View>
+                  <TouchableOpacity  onPress={()=>Actions.notification()}>
                   <Image
               source={require("../assets/note1.jpg")}
               style={{
@@ -60,28 +79,45 @@ export class Dashboard extends Component {
               }}
               
             />
+                  </TouchableOpacity>
+                 
                   </View>
               </View>
           </View>
 
 
-        <Router>
-           <Scence key="root">
-            <Scence key={'offer'} component={Offer}/>
-            </Scence>
-        </Router>
+       
 
           </View>
-
-         
-
-          
         )
 
     }
+    
   
 
 }
+
+
+// const AppNavigator  = createStackNavigator({
+    // offer: { screen: Offer},
+    // SecondPage: { screen: SecondPage},
+
+//   });
+
+//   const Stack = createStackNavigator();
+  
+  
+//   function App() {
+//     return (
+//       <NavigationContainer>
+//         <Stack.Navigator>
+//           <Stack.Screen name="offer" component={Offer} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     );
+//   }
+  
+
 const styles = StyleSheet.create({
 
     card:{
@@ -108,5 +144,11 @@ const styles = StyleSheet.create({
     }
 
 });
-
+// export default createAppContainer(AppNavigator);
 export default Dashboard
+// const AppContainer = createAppContainer(Stack);
+// export default class Apps extends React.Component {
+//   render() {
+//     return <AppContainer />;
+//   }
+// }

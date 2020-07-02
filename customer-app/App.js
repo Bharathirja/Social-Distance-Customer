@@ -9,6 +9,9 @@ import {Router, Scene} from 'react-native-router-flux';
 import Registerscreen from './customerapp/registerscreen';
 import Menutabscreen from './customerapp/menutabscreen';
 import Homeprofile from './customerapp/homeprofile';
+import Offer from './customerapp/offer';
+import Welcome from './customerapp/welcome';
+import Notification  from './customerapp/notification';
 
 export default function App() {
   // const[name,setName] = useState('pappugroup');
@@ -52,8 +55,26 @@ export default function App() {
         component={Menutabscreen}
         title="tab"
         /> 
+           <Scene
+        key="offer"
+        component={Offer}
+        // title="Home"
+        /> 
+                <Scene
+        key="welcome"
+        component={Welcome}
+        // title="Home"
+        /> 
+                <Scene
+        key="notification"
+        component={Notification}
+        // title="Home"
+        /> 
 
       </Scene>
+
+   
+
 
     </Router>
 
