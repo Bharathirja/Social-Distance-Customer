@@ -16,6 +16,7 @@ import { View,
     Image,
     Dimensions,
 } from 'react-native';
+import {Dashboard} from '../customerapp/dashboard'
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import {Menutabscreen} from '../customerapp/menutabscreen'
@@ -26,10 +27,7 @@ import {Menutabscreen} from '../customerapp/menutabscreen'
 function HomeScreen(){
     
     return (
-        <View style={styles.container }>
-            <Text style={{fontSize:20,paddingLeft:5}}>Dashboard</Text>
-        </View>
-     
+      <Dashboard/>
     )
 
 }
@@ -264,10 +262,7 @@ export class BookingScreen extends Component {
                         >
                             <View style={{ marginTop: 20 }}>
                             <Text>choose date for booking</Text>
-
                                 <Book/>
-                          
-
                             </View>
                         </Animated.View> 
 
