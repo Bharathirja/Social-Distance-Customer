@@ -1,3 +1,4 @@
+
 import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import icon from 'react-native-vector-icons/Ionicons';
@@ -20,18 +21,6 @@ import {Dashboard} from '../customerapp/dashboard'
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import {Menutabscreen} from '../customerapp/menutabscreen'
-// import Animated from 'react-native-reanimated'
-
-
-
-function HomeScreen(){
-    
-    return (
-      <Dashboard />
-    )
-
-}
-
 
 
 export class Book extends Component{
@@ -301,62 +290,6 @@ export class BookingScreen extends Component {
  
 }
 
-        
-    
-
-
-function ProfileScreen () {
-
-        return (
-            <View style={styles.regform}> 
-            <Text style={styles.header}>Enter Your Details for registration</Text>
-            <TextInput style={styles.textinput} placeholder = 'Your name'
-             underlineColorAndroid={'transparent'}/>
-<TextInput style={styles.textinput} placeholder = 'Mobile number'
-             underlineColorAndroid={'transparent'}/>
-             <TextInput style={styles.textinput} placeholder = 'Email'
-             underlineColorAndroid={'transparent'}/>
-             <TextInput style={styles.textinput} placeholder = 'Address'
-             underlineColorAndroid={'transparent'}/>
-                <TouchableOpacity style={styles.Button} onPress={()=>Actions.otpscreen()}>
-                            <Text style={styles.btntext} >Register</Text>
-                </TouchableOpacity>
-
-</View> 
-         
-        )
-    
-}
-
-function AboutScreen(){
-    
-        return (
-            <View style={{  justifyContent: 'center', }}>
-                <Text style={{fontSize:20,paddingLeft:5}}>About Us</Text>
-                <View>
-                    <Text style={{paddingLeft:35,marginTop:10}}>
-                        In 2017 we started,We are the leading experts in that service, we are done and doing so many
-                        services for everyone who needs our Help
-                    </Text>
-                    <Text style={{paddingLeft:35,marginTop:10}}>
-                     we are give the best for you and also we done in a correct time for your need
-                    </Text>
-                    <Text style={{paddingLeft:35,marginTop:10}}>
-                     If you have any struggle during registration or any other trouble kindly contact us 8754444875
-                    </Text>
-                    <Text style={{paddingLeft:35,marginTop:10}}>
-                     Thank you  
-                    </Text>
-
-
-                </View>
-
-            </View>
-         
-        )
-    
-}
-
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -404,50 +337,5 @@ const styles = StyleSheet.create({
     } 
 })
 
-const Tab = createMaterialBottomTabNavigator();
 
-export default function App() {
-    return (
-      <NavigationContainer>
-        <Tab.Navigator
-          initialRouteName="Home"
-          activeColor="#f0edf6"
-          inactiveColor="#3e2465"
-          barStyle={{ backgroundColor: '#694fad' }}
-        >
-          <Tab.Screen name="Home" component={HomeScreen}  options= 
-          {{tabBarIcon:({tintColor})=>(
-              <View>
-                  <Icon style={[{color:tintColor}]} size={25} name={'md-home'}></Icon>
-
-              </View>
-          ),}} />
-          <Tab.Screen name="Booking" component={BookingScreen} options=
-           {{tabBarIcon:({tintColor})=>(
-            <View >
-                <Icon style={[{color:tintColor}]} size={25} name={'md-calendar'} ></Icon>
-                
-            </View>
-        ),}}  />
-          <Tab.Screen name="Profile" component={ProfileScreen} options=
-          {{tabBarIcon:({tintColor})=>(
-            <View>
-                <Icon style={[{color:tintColor}]} size={25} name={'md-person'}></Icon>
-
-            </View>
-        ),}}/>
-          <Tab.Screen name="Help" component={AboutScreen} options=
-          {{tabBarIcon:({tintColor})=>(
-            <View>
-                <Icon style={[{color:tintColor}]} size={25} name={'md-help'}></Icon>
-
-            </View>
-        ),}}/>
-
-        </Tab.Navigator>
-      </NavigationContainer>
-    );
-  }
-  
-
-// export default createAppContainer(Tab);
+export default BookingScreen

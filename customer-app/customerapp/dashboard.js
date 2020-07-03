@@ -10,6 +10,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
 // import { StackNavigator } from "react-navigation";
 import {Actions} from "react-native-router-flux";
+import BookingScreen from './homeprofile';
+
+
 
 export class Dashboard extends Component {
     constructor() {
@@ -68,7 +71,7 @@ export class Dashboard extends Component {
           <View style={styles.card}>
               <View style={styles.cardContent}>
               <View>
-                  <TouchableOpacity  onPress={()=>Actions.notification()}>
+                  <TouchableOpacity  onPress={()=>Actions.booking()}>
                   <Image
               source={require("../assets/note1.jpg")}
               style={{

@@ -12,6 +12,7 @@ import Homeprofile from './customerapp/homeprofile';
 import Offer from './customerapp/offer';
 import Welcome from './customerapp/welcome';
 import Notification  from './customerapp/notification';
+import BookingScreen from './customerapp/bookingscreen'
 
 export default function App() {
   // const[name,setName] = useState('pappugroup');
@@ -70,6 +71,13 @@ export default function App() {
         component={Notification}
         // title="Home"
         /> 
+
+<Scene
+        key="booking"
+        component={BookingScreen}
+        // title="Home"
+        /> 
+
 
       </Scene>
 
