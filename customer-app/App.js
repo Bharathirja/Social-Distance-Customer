@@ -25,13 +25,13 @@ export default function App() {
   // }
   return (
     <View style={[styles.container,{flex:1}]}> 
-     <Router>
-      <Scene key="root">
+     <Router >
+      <Scene key="root" navigationBarStyle={{ backgroundColor: '#4444ff' }}>
 
         <Scene
         key="login"
         component={Login}
-        title="login"
+        // title="login"
         initial
         />
 

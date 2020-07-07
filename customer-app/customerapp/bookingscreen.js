@@ -21,6 +21,7 @@ import {Dashboard} from '../customerapp/dashboard'
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import {Menutabscreen} from '../customerapp/menutabscreen'
+import BookingHistory from './BookingHistory'
 
 
 export class Book extends Component{

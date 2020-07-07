@@ -7,11 +7,10 @@ export class Loginform extends Component {
     render() {
         return (
             <View style={styles.container}>
-             
+ 
                   <Text style={styles.header}>Login</Text>
                 <TextInput style={styles.input}
-                    placeholder = 'your mobile number'
-                    placeholderTextColor ='rbga(255,255,255,0.7)'
+                    placeholder = 'mobile number'
                     keyboardType='numeric' underlineColorAndroid={'transparent'}
                 />
                 <TouchableOpacity style={styles.buttonContainer} onPress={()=>Actions.otpscreen()}>

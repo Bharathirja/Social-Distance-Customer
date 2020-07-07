@@ -16,11 +16,19 @@ import { View,
     Image,
     Dimensions,
 } from 'react-native';
-import {Dashboard} from '../customerapp/dashboard'
+import Dashboard from '../customerapp/dashboard';
+import NotificationsCarousal from './NotificationsCarousal';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import {Menutabscreen} from '../customerapp/menutabscreen'
 // import Animated from 'react-native-reanimated'
+import { YellowBox } from 'react-native';
+import moment from 'moment';
+import BookingHistory from './BookingHistory';
+
+YellowBox.ignoreWarnings([
+  'Require cycle:'
+])
 
 
 
@@ -38,20 +46,22 @@ export class Book extends Component{
     constructor(){
         super()
         this.state = {
-            isVisible:false
+            isVisible:false,
+            chosenDate: '',
         }
 
     }
-handlePicker = ()=>{
+handlePicker = (datetime)=>{
     this.setState({
-        isVisible:false
+        isVisible:false,
+        chosenDate:moment(datetime).format('MMMM, Do YYYY HH:mm')
 
     })
 }
 
-hidePicker = () =>{
+hidePicker = (datetime) =>{
     this.setState({
-        isVisible:false
+        isVisible:false,
     })
 }
 
@@ -64,15 +74,19 @@ showPicker = ()=>{
    render(){
 
         return (
-            <View  style={styles.container}>
+            <View  style={styles.DateTimePicker}>
+                <Text style={{color:'red',fontSize:20,marginBottom:10}}>
+                    {this.state.chosenDate}
+                </Text>
                 <TouchableOpacity style={styles.Button} onPress={this.showPicker}>
-                    <Text>Show DateTimePicker</Text>
+                    <Text style={styles.text}>Show DateTimePicker</Text>
                 </TouchableOpacity>
                 <DateTimePicker
-                 
                  isVisible={this.state.isVisible}
                  onConfirm={this.handlePicker}
                  onCancel={this.hidePicker}
+                 mode={'datetime'}
+                 is24Hour={true}
                 
                 />
 
@@ -261,7 +275,8 @@ export class BookingScreen extends Component {
                             }
                         >
                             <View style={{ marginTop: 20 }}>
-                            <Text>choose date for booking</Text>
+                            {/* <Text style={styles.datetime}>choose date for booking</Text> */}
+                                {/* <Book/> */}
                                 <Book/>
                             </View>
                         </Animated.View> 
@@ -280,7 +295,7 @@ export class BookingScreen extends Component {
                                 ]
                             }}
                         >
-                            <View style={{ marginTop: 20 }}>
+                            <View style={styles.historycontainer}> 
                                 {/* <Image
                                     source={require("../../images/client2.png")}
                                     style={{
@@ -289,7 +304,8 @@ export class BookingScreen extends Component {
                                         borderRadius: 15
                                     }}
                                 /> */}
-                            <Text>History details</Text>
+                            {/* <Text>History details</Text> */}
+                            <BookingHistory/>
 
                             </View>
                         </Animated.View> 
@@ -358,10 +374,12 @@ function AboutScreen(){
 }
 
 const styles = StyleSheet.create({
-    container:{
+    DateTimePicker:{
         flex:1,
         justifyContent:'center',
         alignItems:'center',
+        // backgroundColor:'#F5FCFF',
+        marginTop:300,
 
 
     }, regform:{
@@ -388,20 +406,44 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
     },
     Button:{
-        alignSelf:'stretch',
-        alignItems:'center',
-        padding:20,
-        backgroundColor:'#59cbbd',
-        marginTop:30,
+        // alignSelf:'stretch',
+        // alignItems:'center',
+        // padding:20,
+        // backgroundColor:'#59cbbd',
+        // marginTop:30,
+        width:250,
+        height:50,
+        backgroundColor:'#330066',
+        borderRadius:30,
+        justifyContent:'center',
+        marginTop:15
     },
     btntext:{
         color:'#fff',
         fontWeight:'bold',
         fontSize:20,
+    },
+
+    datetime:{
+        color:'red'
+    },
+    text:{
+        fontSize:18,
+        color:'white',
+        textAlign:'center',
+
+    },
+
+    //historycontainer
+
+    historycontainer:{
+        // backgroundColor:'blue',
+        width:'100%',
+        height:'100%'
+    }
 
 
 
-    } 
 })
 
 const Tab = createMaterialBottomTabNavigator();

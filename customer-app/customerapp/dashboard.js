@@ -11,6 +11,8 @@ import { createStackNavigator} from '@react-navigation/stack';
 // import { StackNavigator } from "react-navigation";
 import {Actions} from "react-native-router-flux";
 import BookingScreen from './homeprofile';
+import NotificationsCarousal from './NotificationsCarousal';
+import OfferCarousal from './OfferCarousal';
 
 
 
@@ -24,74 +26,78 @@ export class Dashboard extends Component {
           
         // const {navigate} =this.props.navigation;
         return (
-            <View>
-          <View style={styles.card}>
-              <View style={styles.cardContent} >
-                  <View >
-                      <TouchableOpacity 
-                       onPress={()=>Actions.welcome()}>
+        //     <View>
+        //   <View style={styles.card}>
+        //       <View style={styles.cardContent} >
+        //           <View >
+        //               <TouchableOpacity 
+        //                onPress={()=>Actions.welcome()}>
 
-                      <Image
-              source={require("../assets/welcome.jpg")}
-              style={{
-                height: 200,
-                width:373,
-                borderRadius:5
-                // width: 155
-              }}
+        //               <Image
+        //       source={require("../assets/welcome.jpg")}
+        //       style={{
+        //         height: 200,
+        //         width:373,
+        //         borderRadius:5
+        //         // width: 155
+        //       }}
       
-            />
-                      </TouchableOpacity>
+        //     />
+        //               </TouchableOpacity>
            
-              {/* onPress={() => this.props.navigation.push(<Welcome/>)}   */}
 
-                  </View>
-                  {/* <Text style={{alignContent:'center'}}>Welcome</Text> */}
-              </View>
-          </View>
-              <View style={styles.card}>
-              <View style={styles.cardContent}>
-              <View>
-                  <TouchableOpacity 
-                   onPress={()=>Actions.offer()}>
-                  <Image
-              source={require("../assets/onlyoffer.jpg")}
-              style={{
-                height: 200,
-                width:373,
-                borderRadius:5
-                // width: 155
-              }}
-            />
-                  </TouchableOpacity>
+        //           </View>
+        //       </View>
+        //   </View>
+
+        //       <View style={styles.card}>
+        //       <View style={styles.cardContent}>
+        //       <View>
+        
+        //           <OfferCarousal/>
            
-                  </View>
-              </View>
-          </View>
-          <View style={styles.card}>
-              <View style={styles.cardContent}>
-              <View>
-                  <TouchableOpacity  onPress={()=>Actions.booking()}>
-                  <Image
-              source={require("../assets/note1.jpg")}
-              style={{
-                height: 200,
-                width:373,
-                borderRadius:5
-                // width: 155
-              }}
-              
-            />
-                  </TouchableOpacity>
+        //           </View>
+        //       </View>
+        //   </View>
+
+          
+        //   <View style={styles.card}>
+        //       <View style={styles.cardContent}>
+        //       <View>
+         
+        //     <NotificationsCarousal/>
+            
                  
-                  </View>
-              </View>
-          </View>
+        //           </View>
+        //       </View>
+        //   </View>
 
 
        
 
-          </View>
+        //   </View>
+        <View style={styles.container}>
+           <View style={styles.welcome}>
+               <View style={styles.welcontent}>
+               <Text style={{fontSize:40}}>GoodMorning!!!</Text>
+               </View>
+               <View style={styles.namecontent}>
+                   <Text style={{fontSize:25}}>Mr.PG Analytics</Text>
+               </View>
+               <View style={styles.infocontent}>
+               <Text style={{fontSize:20}}>Our offer was almost reasonable. </Text>
+               </View>
+           </View>
+           <View style={styles.offers}>
+                 <OfferCarousal/>
+
+           </View>
+           <View style={styles.notifications}>
+           <NotificationsCarousal/>
+
+           </View>
+
+        </View>
         )
 
     }
@@ -122,29 +128,77 @@ export class Dashboard extends Component {
   
 
 const styles = StyleSheet.create({
-
-    card:{
-        padding:20,
-        borderRadius:6,
-        elevation:3,
-        backgroundColor:'#fff',
-        shadowOffset:{width:1,height:1},
-        shadowColor:'#333',
-        shadowOpacity:0.3,
-        alignItems:'center',
-        margin:12,
-        height:200,
+    container:{
+        flex:1,
         justifyContent:'center',
-        shadowRadius:2,
-        // marginHorizontal:10,
-        // marginVertical:6,
+        alignItems:'center',
     },
-    cardContent:{
-        // marginVertical:70,
-        marginHorizontal:10,
+    welcome:{
+        flex:4,
+        backgroundColor:'#4444ff',
+        width:'100%',
+        // justifyContent:'center',
+        // alignItems:'center',
+        
+    },
+    offers:{
+        flex:3,
+        marginTop:10,
+        padding:10
+
+
+
+
+    },
+    notifications:{
+        flex:3,
+        marginTop:10,
+        padding:10
+
+
+
+
+    },
+    welcontent:{
+        flex:1,
+        padding:10
+    },
+    namecontent:{
+        flex:1,
+        marginLeft:200
+
+    },
+    infocontent:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+
+    },
+
+    // card:{
+    //     padding:20,
+    //     borderRadius:6,
+    //     elevation:3,
+    //     backgroundColor:'#fff',
+    //     shadowOffset:{width:1,height:1},
+    //     shadowColor:'#333',
+    //     shadowOpacity:0.3,
+    //     alignItems:'center',
+    //     margin:12,
+    //     height:200,
+    //     justifyContent:'center',
+    //     shadowRadius:2,
+      
+    // },
+    // cardContent:{
+    //     marginHorizontal:10,
+    //     backgroundColor:'blue',
+
 
         
-    }
+    // }
+
+  
 
 });
 // export default createAppContainer(AppNavigator);
