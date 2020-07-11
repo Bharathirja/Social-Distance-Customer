@@ -82,7 +82,7 @@ export class Dashboard extends Component {
                <Text style={{fontSize:40}}>GoodMorning!!!</Text>
                </View>
                <View style={styles.namecontent}>
-                   <Text style={{fontSize:25}}>Mr.PG Analytics</Text>
+                   <Text style={{fontSize:25}}>Mr.saravanan</Text>
                </View>
                <View style={styles.infocontent}>
                <Text style={{fontSize:20}}>Our offer was almost reasonable. </Text>

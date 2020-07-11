@@ -24,11 +24,11 @@ export class OfferCarousal extends Component {
         //   },
         // ]
         carouselItems:[
-          {image:require('../assets/offer.jpg'),text:"offer 1"},
-          {image:require('../assets/offer3.jpg'),text:"offer 2"},
-          {image:require('../assets/offer4.jpg'),text:"offer 3"},
-          {image:require('../assets/offer5.jpg'),text:"offer 4"},
-          {image:require('../assets/offers.jpg'),text:"offer 5"},
+          {image:require('../assets/card1.jpg'),text:"offer 1"},
+          {image:require('../assets/card1.jpg'),text:"offer 2"},
+          {image:require('../assets/card1.jpg'),text:"offer 3"},
+          {image:require('../assets/card1.jpg'),text:"offer 4"},
+          {image:require('../assets/card1.jpg'),text:"offer 5"},
 
 
         ]

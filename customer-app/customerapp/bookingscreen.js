@@ -24,38 +24,40 @@ import {Menutabscreen} from '../customerapp/menutabscreen'
 import BookingHistory from './BookingHistory'
 
 
+
+
 export class Book extends Component{
     constructor(){
         super()
         this.state = {
-            isVisible:false
+            // isVisible:false
         }
 
     }
-handlePicker = ()=>{
-    this.setState({
-        isVisible:false
+// handlePicker = ()=>{
+//     this.setState({
+//         isVisible:false
 
-    })
-}
+//     })
+// }
 
-hidePicker = () =>{
-    this.setState({
-        isVisible:false
-    })
-}
+// hidePicker = () =>{
+//     this.setState({
+//         isVisible:false
+//     })
+// }
 
-showPicker = ()=>{
-    this.setState({
-        isVisible:true
-    })
-}
+// showPicker = ()=>{
+//     this.setState({
+//         isVisible:true
+//     })
+// }
 
    render(){
 
         return (
             <View  style={styles.container}>
-                <TouchableOpacity style={styles.Button} onPress={this.showPicker}>
+                {/* <TouchableOpacity style={styles.Button} onPress={this.showPicker}>
                     <Text>Show DateTimePicker</Text>
                 </TouchableOpacity>
                 <DateTimePicker
@@ -64,7 +66,7 @@ showPicker = ()=>{
                  onConfirm={this.handlePicker}
                  onCancel={this.hidePicker}
                 
-                />
+                /> */}
 
             </View>
          

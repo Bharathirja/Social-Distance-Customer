@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {Component} from 'react';
+import React,{Component,useState} from 'react';
 import icon from 'react-native-vector-icons/Ionicons';
 import {createAppContainer} from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,6 +15,7 @@ import { View,
     ScrollView,
     Image,
     Dimensions,
+    Modal,
 } from 'react-native';
 import Dashboard from '../customerapp/dashboard';
 import NotificationsCarousal from './NotificationsCarousal';
@@ -25,6 +26,12 @@ import {Menutabscreen} from '../customerapp/menutabscreen'
 import { YellowBox } from 'react-native';
 import moment from 'moment';
 import BookingHistory from './BookingHistory';
+import { MaterialIcons } from '@expo/vector-icons';
+import { color } from 'react-native-reanimated';
+// import { Modal } from 'react-native-paper';
+
+
+import BookingTime from '../customerapp/bookingTime'
 
 YellowBox.ignoreWarnings([
   'Require cycle:'
@@ -42,60 +49,113 @@ function HomeScreen(){
 
 
 
-export class Book extends Component{
-    constructor(){
-        super()
-        this.state = {
-            isVisible:false,
-            chosenDate: '',
-        }
+// export class Book extends Component{
+//     constructor(){
+//         super()
+//         this.state = {
+//             isVisible:false,
+//             chosenDate: '',
+//         }
 
-    }
-handlePicker = (datetime)=>{
-    this.setState({
-        isVisible:false,
-        chosenDate:moment(datetime).format('MMMM, Do YYYY HH:mm')
+//     }
+// handlePicker = (datetime)=>{
+//     this.setState({
+//         isVisible:false,
+//         chosenDate:moment(datetime).format('MMMM, Do YYYY HH:mm')
 
-    })
-}
+//     })
+// }
 
-hidePicker = (datetime) =>{
-    this.setState({
-        isVisible:false,
-    })
-}
+// hidePicker = (datetime) =>{
+//     this.setState({
+//         isVisible:false,
+//     })
+// }
 
-showPicker = ()=>{
-    this.setState({
-        isVisible:true
-    })
-}
+// showPicker = ()=>{
+//     this.setState({
+//         isVisible:true
+//     })
+// }
 
-   render(){
+//    render(){
 
-        return (
-            <View  style={styles.DateTimePicker}>
-                <Text style={{color:'red',fontSize:20,marginBottom:10}}>
-                    {this.state.chosenDate}
-                </Text>
-                <TouchableOpacity style={styles.Button} onPress={this.showPicker}>
-                    <Text style={styles.text}>Show DateTimePicker</Text>
-                </TouchableOpacity>
-                <DateTimePicker
-                 isVisible={this.state.isVisible}
-                 onConfirm={this.handlePicker}
-                 onCancel={this.hidePicker}
-                 mode={'datetime'}
-                 is24Hour={true}
+//         return (
+//             <View  style={styles.DateTimePicker}>
+//                 <Text style={{color:'red',fontSize:20,marginBottom:10}}>
+//                     {this.state.chosenDate}
+//                 </Text>
+//                 <TouchableOpacity style={styles.Button} onPress={this.showPicker}>
+//                     <Text style={styles.text}>Show DateTimePicker</Text>
+//                 </TouchableOpacity>
+//                 <DateTimePicker
+//                  isVisible={this.state.isVisible}
+//                  onConfirm={this.handlePicker}
+//                  onCancel={this.hidePicker}
+//                  mode={'datetime'}
+//                  is24Hour={true}
                 
-                />
+//                 />
 
+//             </View>
+         
+//         );
+    
+// }
+// }
+
+
+//model popup for add booking
+
+
+
+  function Book(){
+      const [modalOpen, setModelOpen] = useState(false);
+    
+        return (
+            <View style={styles.booking_notification}>
+            <View style={{flex:5,marginBottom:350}}>
+            <Text>notification 1 </Text>
+            <Text>notification 2 </Text>
             </View>
+            <View style={{flex:3}}>
+               <View style={{marginLeft:140,flexDirection:'row',alignItems:'center'}}>
+                    <Text style={{marginRight:5}}>New Book Here</Text>
+                  {/* <Icon style={{color:'green'}} size={50} name={'md-add'}></Icon> */}
+                  <MaterialIcons
+                  name='add'
+                  size={50}
+                  style={styles.modalToggle}
+                  onPress={()=>setModelOpen(true)}
+                  />
+              </View>
+            </View>
+
+
+       <Modal visible={modalOpen} animationType='slide'>
+           <View style={StyleSheet.modalcontent}>
+           
+               <View>
+               <MaterialIcons
+                  name='close'
+                  size={30}
+                  style={styles.modalCloseToggle}
+                  onPress={()=>setModelOpen(false)}
+                  />
+               </View>
+
+               <BookingTime/>
+           </View>
+       
+       </Modal>
+       </View>
+
+  
          
         );
     
 }
-}
+
 
 
 const { width } = Dimensions.get("window");
@@ -160,21 +220,22 @@ export class BookingScreen extends Component {
             translateY
         } = this.state;
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1,height:"90%" }}>
                 <View
                     style={{
                         width: "90%",
                         marginLeft: "auto",
-                        marginRight: "auto"
+                        marginRight: "auto",
+                        // height:"100%",
                     }}
                 >
                     <View
                         style={{
                             flexDirection: "row",
-                            marginTop: 40,
+                            marginTop: 20,
                             marginBottom: 20,
                             height: 36,
-                            position: "relative"
+                            position: "relative",
                         }}
                     >
                         <Animated.View
@@ -257,11 +318,14 @@ export class BookingScreen extends Component {
                         </TouchableOpacity>
                     </View>
 
-                    <ScrollView>
+ 
+                {/* new booking and booking history */}
+
+                    <ScrollView > 
                         <Animated.View
                             style={{
-                                justifyContent: "center",
-                                alignItems: "center",
+                                // justifyContent: "center",
+                                // alignItems: "center",
                                 transform: [
                                     {
                                         translateX: translateXTabOne
@@ -274,17 +338,17 @@ export class BookingScreen extends Component {
                                 })
                             }
                         >
-                            <View style={{ marginTop: 20 }}>
-                            {/* <Text style={styles.datetime}>choose date for booking</Text> */}
-                                {/* <Book/> */}
-                                <Book/>
-                            </View>
+                             <View style={{marginTop: 20 }}> 
+                                 <Book/> 
+                                
+                            </View> 
+                            
                         </Animated.View> 
 
                         <Animated.View
                             style={{
-                                justifyContent: "center",
-                                alignItems: "center",
+                                // justifyContent: "center",
+                                // alignItems: "center",
                                 transform: [
                                     {
                                         translateX: translateXTabTwo
@@ -295,7 +359,7 @@ export class BookingScreen extends Component {
                                 ]
                             }}
                         >
-                            <View style={styles.historycontainer}> 
+                            <View > 
                                 {/* <Image
                                     source={require("../../images/client2.png")}
                                     style={{
@@ -375,11 +439,10 @@ function AboutScreen(){
 
 const styles = StyleSheet.create({
     DateTimePicker:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        // backgroundColor:'#F5FCFF',
-        marginTop:300,
+        // flex:1,
+        // justifyContent:'center',
+        // alignItems:'center',
+        // marginTop:300,
 
 
     }, regform:{
@@ -434,14 +497,36 @@ const styles = StyleSheet.create({
 
     },
 
-    //historycontainer
+    //animated view
 
-    historycontainer:{
-        // backgroundColor:'blue',
-        width:'100%',
-        height:'100%'
+    //new booking
+
+    booking_notification:{
+    },
+
+    modalToggle:{
+        borderWidth:3,
+        borderColor:'#5085ff',
+        padding:12,
+        borderRadius:40,
+        alignSelf:'center',
+        color:'#1c56db',
+     
+    },
+    modalCloseToggle:{
+        borderWidth:3,
+        borderColor:'#5085ff',
+        padding:12,
+        borderRadius:40,
+        alignSelf:'center',
+        color:'#1c56db',
+        marginTop:2,
+
     }
 
+    //historycontainer
+
+ 
 
 
 })

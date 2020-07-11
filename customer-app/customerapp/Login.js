@@ -182,11 +182,16 @@ export default class Login extends Component {
           </View>
 
           <View style={styles.login_inputs}>
+            <View style={styles.inputContainer}>
+            <Text style={styles.prefix}>+91</Text>
             <TextInput 
               style={styles.textinput} 
-              placeholder='Enter mobile number :'
+              keyboardType="numeric"
+              underlineColorAndroid={'transparent'}
+
               />
-            
+            </View>
+           
           </View>
           <View style={styles.enter}>
           <TouchableOpacity style={styles.buttonContainer} onPress={()=>Actions.otpscreen()}>
@@ -212,7 +217,19 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    padding:1
+  },
+  inputContainer:{
+    flexDirection:'row'
+  },
+  prefix: {
+    paddingHorizontal: 10,
+    fontWeight: 'bold',
+    color: 'black',
+    justifyContent:'center',
+    fontSize:20,
+    borderBottomWidth:1,
+    marginLeft:5
+
   },
   app_details:{
     flex:7,
@@ -235,12 +252,16 @@ const styles = StyleSheet.create({
   login_inputs:{
     flex:1,
     justifyContent:'center',
-    paddingLeft:20
+    paddingLeft:20,
+    // flexDirection:'row',
   },
   textinput:{
     height:30,
     width:180,
-    fontSize:18
+    fontSize:18,
+    borderBottomWidth:1,
+    padding:5,
+    width:300,
   },
   image:{
     height:140

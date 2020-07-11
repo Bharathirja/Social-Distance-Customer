@@ -4,14 +4,22 @@ import {Actions} from 'react-native-router-flux'
 
 
 export class Loginform extends Component {
+    constructor(){
+        super()
+      
+    }
     render() {
         return (
             <View style={styles.container}>
  
-                  <Text style={styles.header}>Login</Text>
+                <Text style={styles.prefix}>+91</Text>
+
                 <TextInput style={styles.input}
-                    placeholder = 'mobile number'
-                    keyboardType='numeric' underlineColorAndroid={'transparent'}
+                    keyboardType="number-pad"
+                    underlineColorAndroid={'transparent'}
+                    // onChangeText={mobile_number => this.setState({ mobile_number })}  for set the current mobile number
+
+                    
                 />
                 <TouchableOpacity style={styles.buttonContainer} onPress={()=>Actions.otpscreen()}>
                      <Text style={styles.buttonText}>GO</Text>
@@ -23,7 +31,8 @@ export class Loginform extends Component {
 }
 const styles = StyleSheet.create({
     container:{
-        padding:20
+        padding:20,
+        flexDirection:'row',
     },
     header:{
             fontSize:24,
@@ -54,7 +63,12 @@ const styles = StyleSheet.create({
             textAlign:'center',
             color:'#FFFFFF',
             fontWeight:'700',
-        }
+        },
+        prefix: {
+            paddingHorizontal: 10,
+            fontWeight: 'bold',
+            color: 'black'
+          }
 
 
 

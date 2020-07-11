@@ -25,11 +25,11 @@ export class NotificationsCarousal extends Component {
         //   },
         // ]
         carouselItems:[
-          {image:require('../assets/notification1.jpg'),text:"notification 1"},
-          {image:require('../assets/notification2.jpg'),text:"notification 2"},
-          {image:require('../assets/notification3.jpg'),text:"notification 3"},
-          {image:require('../assets/note2.jpg'),text:"notification 4"},
-          {image:require('../assets/note1.jpg'),text:"notification 5"},
+          {image:require('../assets/card2.jpg'),text:"notification 1"},
+          {image:require('../assets/card2.jpg'),text:"notification 2"},
+          {image:require('../assets/card2.jpg'),text:"notification 3"},
+          {image:require('../assets/card2.jpg'),text:"notification 4"},
+          {image:require('../assets/card2.jpg'),text:"notification 5"},
 
 
         ]
@@ -38,7 +38,7 @@ export class NotificationsCarousal extends Component {
 
     _renderItem({item,index}){
         return (
-          <TouchableOpacity onPress={()=>Alert.alert(item.text)}>
+          <TouchableOpacity onPress={()=>Actions.booking()}>
           <View style={{
               // backgroundColor:'floralwhite',
               borderRadius: 5,
@@ -67,7 +67,8 @@ export class NotificationsCarousal extends Component {
                   sliderWidth={350}
                   itemWidth={300}
                   renderItem={this._renderItem}
-                  onSnapToItem = { index => this.setState({activeIndex:index})} />
+                  onSnapToItem = { index => this.setState({activeIndex:index})}
+                   />
             </View>
           </SafeAreaView>
         );
