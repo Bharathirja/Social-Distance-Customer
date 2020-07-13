@@ -29,6 +29,8 @@ import BookingHistory from './BookingHistory';
 import { MaterialIcons } from '@expo/vector-icons';
 import { color } from 'react-native-reanimated';
 // import { Modal } from 'react-native-paper';
+import { Card } from 'react-native-elements'
+
 
 
 import BookingTime from '../customerapp/bookingTime'
@@ -115,12 +117,24 @@ function HomeScreen(){
         return (
             <View style={styles.booking_notification}>
             <View style={{flex:5,marginBottom:350}}>
-            <Text>notification 1 </Text>
-            <Text>notification 2 </Text>
+                    
+            <Card >
+                    <Text style={{marginBottom: 10,fontSize:15}}>
+                        Here Mention about that particular offers 
+                    </Text>
+                    <Text style={{fontWeight:'bold'}}>
+                        For booking kindly add your shedule time to click below
+                    </Text>
+                   {/* <Button
+                        icon={<Icon name='' color='#ffffff' />}
+                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                        title='VIEW NOW' /> */}
+                    </Card>
+
             </View>
             <View style={{flex:3}}>
                <View style={{marginLeft:140,flexDirection:'row',alignItems:'center'}}>
-                    <Text style={{marginRight:5}}>New Book Here</Text>
+                    {/* <Text style={{marginRight:5}}>New Book Here</Text> */}
                   {/* <Icon style={{color:'green'}} size={50} name={'md-add'}></Icon> */}
                   <MaterialIcons
                   name='add'

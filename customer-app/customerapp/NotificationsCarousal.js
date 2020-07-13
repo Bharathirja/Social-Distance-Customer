@@ -3,6 +3,9 @@ import { Text, View,SafeAreaView,StyleSheet,Image,Alert} from 'react-native'
 import Carousel from 'react-native-snap-carousel';
 import { Actions } from 'react-native-router-flux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import BookingScreen from './homeprofile'
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 
 export class NotificationsCarousal extends Component {
     constructor(props){
@@ -35,10 +38,10 @@ export class NotificationsCarousal extends Component {
         ]
       }
     }
-
+   
     _renderItem({item,index}){
         return (
-          <TouchableOpacity onPress={()=>Actions.booking()}>
+          <TouchableOpacity >
           <View style={{
               // backgroundColor:'floralwhite',
               borderRadius: 5,

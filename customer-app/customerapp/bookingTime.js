@@ -1,14 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import { Text, View, StyleSheet,Button  } from 'react-native'
 import {Formik} from 'formik';
 import { TextInput } from 'react-native-paper';
-import {DatePicker} from 'react-native-datepicker'
-// import DateTimePicker from 'react-native-modal-datetime-picker'
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DatePicker from 'react-native-datepicker'
 
 
 
 export const BookingTime=()=> {
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+
+
+    const onDateChange=(date)=>{
+        console.log(date)
+        setDate(date);
+    }
+
+    const onTimeChange=(time)=>{
+        console.log(time)
+        setTime(time)
+    }
    
         return (
             <View style={styles.container}>
@@ -21,7 +32,7 @@ export const BookingTime=()=> {
                     }}
                 >
                     {(props)=>(
-                        <View >
+                        <View style={styles.container_inputs}>
                             <TextInput
                                 style={styles.input}
                                 onChangeText={props.handleChange('username')}
@@ -33,7 +44,7 @@ export const BookingTime=()=> {
 
                             />
 
-                            <TextInput
+                            {/* <TextInput
                                 style={styles.input}
                                 placeholder='Select the Date'
                                 onChangeText={props.handleChange('date')}
@@ -41,9 +52,41 @@ export const BookingTime=()=> {
                                 selectionColor='blue'
                                 editable
 
-                            /> 
+                            />  */}
+
+                                <DatePicker
+                                    style={styles.date}
+                                    mode="date"
+                                    placeholder="select the date"
+                                    format="DD-MM-YYYY"
+                                    minDate="2020-05-01"
+                                    maxDate="2020-12-31"
+                                    confirmBtnText="Confirm"
+                                    cancelBtnText="Cancel"
+                                    showIcon={true}
+                                    date={date}
+                                    // iconSource={require('../assets/timeicon.png')}
+                                    // onDateChange={(date) => {console.log(date)}}
+                                    onDateChange={(date) => {onDateChange(date)}}
+                                />    
+
+
+                                    <DatePicker
+                                    style={styles.time}
+                                    mode="time"
+                                    format="hh:mm-a"
+                                    placeholder="select the time"
+                                    confirmBtnText="Confirm"
+                                    cancelBtnText="Cancel"
+                                    is24Hour={false}
+                                    date={time}
+                                    iconSource={require('../assets/timeicon.png')}
+                                    onDateChange={(time)=>{onTimeChange(time)}}
+
+
+                                />  
                    
-                            <TextInput
+                            {/* <TextInput
                                 style={styles.input}
                                 placeholder='Select the Time'
                                 onChangeText={props.handleChange('time')}
@@ -52,7 +95,7 @@ export const BookingTime=()=> {
                                 editable
                             
 
-                            />
+                            /> */}
                                <TextInput
                                multiline
                                 style={styles.input_multiline}
@@ -64,14 +107,10 @@ export const BookingTime=()=> {
                             
 
                             />
-                                {/* <UselessTextInput
-                                    multiline
-                                    numberOfLines={4}
-                                    placeholder='Description'
-                                    onChangeText={props.handleChange('description')}
-                                    value={props.values.description}
-                                    value={value}
-                                /> */}
+                          
+
+                            
+                           
 
                                 <Button title='submit' color='maroon' onPress={props.handleSubmit}/>
 
@@ -103,7 +142,7 @@ const styles =StyleSheet.create({
     padding:10,
     borderRadius:6,
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 20,
     },
     input_multiline:{
         fontSize:18,
@@ -112,11 +151,23 @@ const styles =StyleSheet.create({
         borderColor:'#ddd',  
         padding:10,
         borderRadius:6,
-        marginTop: 10,
-        marginBottom: 10,
-    
+        marginBottom: 20,
+
+    },
+    date:{
+        width:380,
+        marginBottom: 20,
+
+        // marginRight:
+        
+    },
+    time:{
+        width:380,
+        marginBottom: 20,
+
 
     }
+
 
 })
 

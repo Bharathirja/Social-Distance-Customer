@@ -72,13 +72,11 @@ export default function App() {
         // title="Home"
         /> 
 
-<Scene
+      <Scene
         key="booking"
-        component={BookingScreen}
+        component={Homeprofile}
         // title="Home"
         /> 
-
-
       </Scene>
 
    
