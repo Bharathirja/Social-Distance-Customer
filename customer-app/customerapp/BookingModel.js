@@ -103,6 +103,7 @@ const BookingModel = () => {
                                 placeholder = "Description"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
+                                multiline={true}
                                 />
                   </View>
                 </View>
