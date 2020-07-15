@@ -3,13 +3,14 @@ import { Text, View,SafeAreaView,StyleSheet,Image,Alert} from 'react-native'
 import Carousel from 'react-native-snap-carousel';
 import { Actions } from 'react-native-router-flux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation'
 import BookingScreen from './homeprofile'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
 export class NotificationsCarousal extends Component {
     constructor(props){
-        super(props);
+        super(props); 
         this.state = {
           activeIndex:0,
         //   carouselItems: [
@@ -38,10 +39,14 @@ export class NotificationsCarousal extends Component {
         ]
       }
     }
-   
+
+  
+    
+
     _renderItem({item,index}){
+
         return (
-          <TouchableOpacity >
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Booking')}}>
           <View style={{
               // backgroundColor:'floralwhite',
               borderRadius: 5,
@@ -52,7 +57,7 @@ export class NotificationsCarousal extends Component {
                }}>
             {/* <Text style={{fontSize: 30}}>{item.image}</Text> */}
             {/* <Text>{item.text}</Text> */}
-            <Image source = {item.image} style={styles.image} />
+            <Image source = {item.image} style={styles.image}  />
           </View>
           </TouchableOpacity>
 
@@ -89,6 +94,7 @@ const styles = StyleSheet.create({
  
 
 });
+
 
 
 

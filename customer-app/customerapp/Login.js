@@ -222,9 +222,8 @@ const styles = StyleSheet.create({
     flexDirection:'row'
   },
   prefix: {
-    paddingHorizontal: 10,
     fontWeight: 'bold',
-    color: 'black',
+    color: 'grey',
     justifyContent:'center',
     fontSize:20,
     borderBottomWidth:1,
