@@ -29,6 +29,7 @@ import BookingTab from './BookingTab'
 import BookingModel from './BookingModel'
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import CustomerProfile from './CustomerProfile';
 
 
 
@@ -73,28 +74,41 @@ function BookingScreen(){
     
 
 
+// function ProfileScreen () {
+
+//         return (
+//             <View style={styles.regform}> 
+//             <Text style={styles.header}>Enter Your Details for registration</Text>
+//             <TextInput style={styles.textinput} placeholder = 'Your name'
+//              underlineColorAndroid={'transparent'}/>
+// <TextInput style={styles.textinput} placeholder = 'Mobile number'
+//              underlineColorAndroid={'transparent'}/>
+//              <TextInput style={styles.textinput} placeholder = 'Email'
+//              underlineColorAndroid={'transparent'}/>
+//              <TextInput style={styles.textinput} placeholder = 'Address'
+//              underlineColorAndroid={'transparent'}/>
+//                 <TouchableOpacity style={styles.Button} onPress={()=>Actions.otpscreen()}>
+//                             <Text style={styles.btntext} >Register</Text>
+//                 </TouchableOpacity>
+
+// </View> 
+         
+//         )
+    
+// }
+
 function ProfileScreen () {
 
-        return (
-            <View style={styles.regform}> 
-            <Text style={styles.header}>Enter Your Details for registration</Text>
-            <TextInput style={styles.textinput} placeholder = 'Your name'
-             underlineColorAndroid={'transparent'}/>
-<TextInput style={styles.textinput} placeholder = 'Mobile number'
-             underlineColorAndroid={'transparent'}/>
-             <TextInput style={styles.textinput} placeholder = 'Email'
-             underlineColorAndroid={'transparent'}/>
-             <TextInput style={styles.textinput} placeholder = 'Address'
-             underlineColorAndroid={'transparent'}/>
-                <TouchableOpacity style={styles.Button} onPress={()=>Actions.otpscreen()}>
-                            <Text style={styles.btntext} >Register</Text>
-                </TouchableOpacity>
+    return (
+        <View> 
+            <CustomerProfile/>
 
-</View> 
-         
-        )
-    
+        </View> 
+     
+    )
+
 }
+
 
 function AboutScreen(){
     

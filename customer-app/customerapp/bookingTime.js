@@ -2,7 +2,8 @@ import React, { Component,useState } from 'react'
 import { Text, View, StyleSheet,Button  } from 'react-native'
 import {Formik} from 'formik';
 import { TextInput } from 'react-native-paper';
-import DatePicker from 'react-native-datepicker'
+// import DatePicker from 'react-native-datepicker'
+import DatePicker from "@react-native-community/datetimepicker"
 
 
 
@@ -61,8 +62,7 @@ export const BookingTime=()=> {
                                     format="DD-MM-YYYY"
                                     minDate="2020-05-01"
                                     maxDate="2020-12-31"
-                                    confirmBtnText="Confirm"
-                                    cancelBtnText="Cancel"
+                                
                                     showIcon={true}
                                     date={date}
                                     // iconSource={require('../assets/timeicon.png')}
@@ -76,8 +76,7 @@ export const BookingTime=()=> {
                                     mode="time"
                                     format="hh:mm-a"
                                     placeholder="select the time"
-                                    confirmBtnText="Confirm"
-                                    cancelBtnText="Cancel"
+                                  
                                     is24Hour={false}
                                     date={time}
                                     iconSource={require('../assets/timeicon.png')}

@@ -5,7 +5,7 @@ import Listscroll from './reactnative-tut/listscroll'
 import Inlinestyle from './reactnative-tut/inlinestyle';
 import Otpscreen from './customerapp/otpscreen';
 // import Navigator from '../routes/homestack';
-import {Router, Scene} from 'react-native-router-flux';
+import {Router, Scene,ActionConst} from 'react-native-router-flux';
 import Registerscreen from './customerapp/registerscreen';
 import Menutabscreen from './customerapp/menutabscreen';
 import Homeprofile from './customerapp/homeprofile';
@@ -33,12 +33,15 @@ export default function App() {
         component={Login}
         // title="login"
         initial
+
         />
 
         <Scene
         key="otpscreen"
         component={Otpscreen}
-        title="otp registration"
+        title="OTP Registration"
+        type={ActionConst.RESET}
+        hideNavBar={true} 
         />  
              <Scene
         key="registrationform"

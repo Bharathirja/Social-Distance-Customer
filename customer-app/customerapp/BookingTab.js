@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,StyleSheet } from 'react-native'
+import { Text, View,StyleSheet,ScrollView,SafeAreaView } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
@@ -7,7 +7,8 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
 function ActiveScreen() {
     return (
-        <View>
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
         <Card
             title='8-08-2020' 
             titleStyle={styles.cardTitle}
@@ -27,10 +28,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+      
         </Card>
         <Card
             title='3-10-2020'
@@ -39,10 +37,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+    
         </Card>
         <Card
             title='3-10-2020'
@@ -51,18 +46,24 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
         </Card>
-        </View>   
+        <Card
+            title='13-10-2020'
+            titleStyle={styles.cardTitle}
+        >
+        <Text style={{marginBottom: 10}}>
+            Here we shows that something about the description of booking on this date
+        </Text>
+        </Card>
+        </ScrollView>
+        </SafeAreaView>  
     );
   }
   
   function PastScreen() {
     return (
-        <View>
+        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
                  <Card
             title='3-10-2020'
             titleStyle={styles.cardTitle}
@@ -70,10 +71,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+       
         </Card>
         <Card
             title='8-08-2020' 
@@ -82,10 +80,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+   
         </Card>
         <Card
             title='31-09-2020'
@@ -94,10 +89,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+      
         </Card>
         <Card
             title='3-10-2020'
@@ -106,10 +98,7 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+       
         </Card>
         <Card
             title='3-10-2020'
@@ -118,12 +107,10 @@ function ActiveScreen() {
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
         </Text>
-        {/* <Button
-            icon={<Icon name='' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' /> */}
+  
         </Card>
-        </View>
+        </ScrollView>
+        </SafeAreaView>
     );
   }
   
@@ -144,7 +131,13 @@ function ActiveScreen() {
 
     cardTitle:{
         color:'red'
-    }
+    },
+    scrollView: {
+        marginHorizontal: 20,
+      },
+      container: {
+        flex: 1,
+      },
 
 
 })

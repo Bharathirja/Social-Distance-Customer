@@ -7,14 +7,12 @@ import {
   TouchableHighlight,
   View,
   TextInput,
-  UselessTextInput
 } from "react-native";
-
 import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/Ionicons';
 import BookingTime from './bookingTime'
 
-const BookingModel = () => {
+const BookingModel = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -64,7 +62,7 @@ const BookingModel = () => {
                                 editable={false}
                             />
 
-                            <DatePicker style = {styles.input}
+                            {/* <DatePicker style = {styles.input}
                                     // style={styles.date}
                                     mode="date"
                                     placeholder="select the date"
@@ -91,11 +89,28 @@ const BookingModel = () => {
                                     date={time}
                                     iconSource={require('../assets/timeicon.png')}
                                     onDateChange={(time)=>{onTimeChange(time)}}
+                                />  */}
                                 
+                                <TextInput style = {styles.input}
+                                underlineColorAndroid = "transparent"
+                                value={description}
+                                placeholder = "date"
+                                placeholderTextColor = "#9a73ef"
+                                autoCapitalize = "none"
+                                multiline={true}
+                                maxLength={50}
+                                />
 
-
-                                /> 
-
+                                
+                                <TextInput style = {styles.input}
+                                underlineColorAndroid = "transparent"
+                                value={description}
+                                placeholder = "time"
+                                placeholderTextColor = "#9a73ef"
+                                autoCapitalize = "none"
+                                multiline={true}
+                                maxLength={50}
+                                />
 
                                 <TextInput style = {styles.input}
                                 underlineColorAndroid = "transparent"
@@ -104,13 +119,14 @@ const BookingModel = () => {
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
                                 multiline={true}
+                                maxLength={50}
                                 />
                   </View>
                 </View>
 
             <View style={{flex:2}}>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              style={{ ...styles.openButton, backgroundColor: "#4444ff",padding:10 }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
@@ -122,15 +138,19 @@ const BookingModel = () => {
           </View>
         </View>
       </Modal>
-
+      
+      <View style={styles.add_view}>
       <TouchableHighlight
-        style={styles.openButton}
+        style={styles.add_button}
         onPress={() => {
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Book</Text>
+        <Icon  size={30} color={'white'} name={'md-add-circle-outline'}></Icon>
+
+        {/* <Text style={styles.textStyle}>Book</Text> */}
       </TouchableHighlight>
+      </View>
     </View>
   );
 };
@@ -161,9 +181,9 @@ const styles = StyleSheet.create({
 
   },
   openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
+    // backgroundColor: "#F194FF",
+    borderRadius:20,
+    // padding: 10,
     elevation: 2
   },
   textStyle: {
@@ -189,6 +209,20 @@ const styles = StyleSheet.create({
     padding:5,
     marginLeft:10
  },
+ add_view:{
+  flex:1,
+  justifyContent:'center',
+  paddingLeft:20,
+  alignItems:'center'
+ },
+ add_button:{
+  height:50,
+  width:50,
+  backgroundColor:'#4444ff',
+  alignItems:'center',
+  justifyContent:'center',
+  borderRadius:35,
+ }
 
 });
 
