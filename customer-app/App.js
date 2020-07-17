@@ -15,14 +15,8 @@ import Notification  from './customerapp/notification';
 import BookingScreen from './customerapp/bookingscreen'
 
 export default function App() {
-  // const[name,setName] = useState('pappugroup');
-  // const[person,setPerson] = useState({name:'covid',age:19});
-
-  // const clickHandler =()=>{
-  //   setName('PG analytics');
-  //   setPerson({name:"anandh",age:26})
-
-  // }
+  const[mobno,setMobno] = useState('');
+ 
   return (
     <View style={[styles.container,{flex:1}]}> 
      <Router >
@@ -43,15 +37,18 @@ export default function App() {
         type={ActionConst.RESET}
         hideNavBar={true} 
         />  
-             <Scene
+
+        <Scene
         key="registrationform"
         component={Registerscreen}
         title="RegistrationForm"
         /> 
-                <Scene
+
+        <Scene
         key="menu"
         component={Homeprofile}
         // title="Home"
+        type={ActionConst.RESET}
         /> 
 
 <Scene

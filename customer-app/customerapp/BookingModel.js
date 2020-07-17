@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   View,
   TextInput,
+  DatePickerIOSComponent,
 } from "react-native";
 import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -93,22 +94,20 @@ const BookingModel = (props) => {
                                 
                                 <TextInput style = {styles.input}
                                 underlineColorAndroid = "transparent"
-                                value={description}
+                                value={DatePickerIOSComponent}
                                 placeholder = "date"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
-                                multiline={true}
                                 maxLength={50}
                                 />
 
                                 
                                 <TextInput style = {styles.input}
                                 underlineColorAndroid = "transparent"
-                                value={description}
+                                value={time}
                                 placeholder = "time"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
-                                multiline={true}
                                 maxLength={50}
                                 />
 
