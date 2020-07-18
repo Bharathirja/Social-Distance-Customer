@@ -3,8 +3,9 @@ import React,{Component,useState} from 'react';
 import icon from 'react-native-vector-icons/Ionicons';
 import {createAppContainer} from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
-// import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import { View,
     Text,
     StyleSheet,
@@ -139,6 +140,8 @@ function AboutScreen(){
     
 }
 
+
+
 const styles = StyleSheet.create({
     regform:{
         alignSelf:'stretch',
@@ -249,37 +252,62 @@ export default function App() {
             inactiveTintColor: 'white',
             style: {
                 backgroundColor: '#694fad',
-              }
+              },
+
+              labelStyle: {        
+                fontSize: 12,        
+               }    
           }}
+       
+        
+       
         >
         <Tab.Screen 
-            name="HomeScreen" 
-            component={HomeScreen} 
-                options={{
-                tabBarLabel: 'Home',
-                tabBarIcon: ({ color }) => (
-                    <Icon   size={25} color={color} name={'md-home'}></Icon>
-                ),
+            component={HomeScreen}
+            name="Home"
+     
+            
+            options={{
+                navigationOptions: {
+                    title: 'Work Orders'
+                    // You can check more options here: https://reactnavigation.org/docs/en/bottom-tab-navigator.html#navigationoptions-for-screens-inside-of-the-navigator
+                  },
                 
-                }}
+             headerTitle:'Home',
+            title: 'My profile',
+            headerBackTitle: null,
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => (
+                <Icon   size={25} color={color} name={'md-home'}></Icon>
+            ),
+           
+
+        
+        }}
         />
 
           <Tab.Screen 
           name="BookingScreen" 
           component={BookingScreen} 
      options={{
+                title:'Home',
                 tabBarLabel: 'Booking',
                 tabBarIcon: ({ color }) => (
                     <Icon  size={25} color={color} name={'md-calendar'}></Icon>
 
                 ),
-                }}  />
+                }} 
+               
+                />
 
           <Tab.Screen 
           name="ProfileScreen" 
           component={ProfileScreen} 
           options={{
             tabBarLabel: 'Profile',
+            headerStyle: {
+                backgroundColor: 'red',
+              },
             tabBarIcon: ({ color }) => (
                 <Icon  size={25}  color={color} name={'md-person'}></Icon>
 

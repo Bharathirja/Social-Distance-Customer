@@ -99,6 +99,7 @@
 
 import React, { Component } from 'react'
 import { View, TextInput, Text,StyleSheet} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default class App extends Component {
@@ -116,25 +117,27 @@ export default class App extends Component {
     const {pin1,pin2,pin3,pin4}=this.state
 
     return(
+      <ScrollView>
       <View style={styles.container}>
 
         <View style={styles.otpscreen}>
 
           <View style={styles.text}>
 
-            <View style={{flex:1,alignItems:'center',justifyContent:'flex-end'}}>
+            <View style={{alignItems:'center',justifyContent:'flex-end'}}>
               <Text style={{fontSize:20,fontWeight:'bold'}}>
-                Enter verification code
+                Enter your verification code
               </Text>
             </View>
 
-            <View style={{flex:1,alignItems:'center',justifyContent:'center',justifyContent:'flex-end'}}>
+            <View style={{alignItems:'center',justifyContent:'center',justifyContent:'flex-end'}}>
               <Text 
                 style={{
                   color:'grey',
                 //   fontFamily:'Arial',
                   fontSize:12,
-                  paddingBottom:3
+                  paddingBottom:3,
+                  marginTop:10
                 }}
               >
                 We have sent you a 4 digit verification code on
@@ -209,16 +212,17 @@ export default class App extends Component {
 
             </View>
 
-            <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+            <View style={{marginTop:10,alignItems:'center',justifyContent:'center'}}>
               <Text style={{fontSize:20}}>0.27</Text>
             </View>
 
           </View>
 
         </View>
-        <View style={{flex:4}}>
-        </View>
+        {/* <View style={{flex:4}}>
+        </View> */}
       </View>
+      </ScrollView>
     );
   }
 
@@ -226,20 +230,19 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
     backgroundColor:'#fcfcfc'
+    
   },
   otpscreen:{
-    flex:6,
+    // flex:1,
+    marginTop:100
   },
   text:{
-    flex:1,
   },
   otp:{
-    flex:1,
+    marginTop:10
   },
   textinput:{
-    flex:1,
     flexDirection:'row',
     justifyContent:'space-evenly',
     marginHorizontal: 40,

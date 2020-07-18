@@ -27,7 +27,7 @@ export default class CustomerProfile extends Component {
   
     this.state = {
       isVisible: false,
-      state:false,
+      // state:false,
       name:'saravanan',
       phonenumber:'875444875',
       email:'frdstomail@gmail.com',
@@ -42,12 +42,13 @@ export default class CustomerProfile extends Component {
     return (
       <ScrollView style={styles.container}>
           <View style={styles.header}>
-          </View>
           <Image style={styles.avatar} source={require('../assets/saravanan_sir.jpg')}/>
+          </View>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
             <TouchableOpacity style={styles.edit_button} onPress = {() => {this.setState({ isVisible: true})}}>
-                <Text>Edit<Icon  size={20} name={'md-create'}></Icon></Text>  
+            <Icon  size={20} name={'md-create'}></Icon>
+                {/* <Text>Edit<Icon  size={20} name={'md-create'}></Icon></Text>   */}
               </TouchableOpacity>
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text>Name: Mr.saravanan</Text>  
@@ -58,13 +59,14 @@ export default class CustomerProfile extends Component {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text>Email : frdstomail@gmail.com</Text>  
               </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Address : Chennai</Text>  
+              <TouchableOpacity style={styles.address_container}>
+                <Text>Address :30,linkup road</Text>
+                <Text>maduvinkari</Text>  
+                <Text>Chennai</Text>  
               </TouchableOpacity>
                              
             </View>
 
-      {/* customer_edit_model     */}
         </View>
         
         <Modal 
@@ -154,7 +156,6 @@ export default class CustomerProfile extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  // onPress = {()=>this.setState({isVisible:false})} 
                   style={{...styles.add_button,backgroundColor:'#ffcc99'}}
                 >
                   <Text style={styles.textStyle}>close</Text>
@@ -177,6 +178,7 @@ export default class CustomerProfile extends Component {
 
   const styles = StyleSheet.create({
     header:{
+      flex:2,
     //   backgroundColor: "tomato",
       height:200,
     },
@@ -189,7 +191,7 @@ export default class CustomerProfile extends Component {
       marginBottom:10,
       alignSelf:'center',
       position: 'absolute',
-      marginTop:130
+      marginTop:75
     },
     name:{
       fontSize:22,
@@ -197,7 +199,6 @@ export default class CustomerProfile extends Component {
       fontWeight:'600',
     },
     body:{
-      marginTop:40,
     },
     bodyContent: {
       flex: 1,
@@ -205,6 +206,7 @@ export default class CustomerProfile extends Component {
       padding:30,
     },
     buttonContainer: {
+      flex:1,
       marginTop:10,
       height:45,
       flexDirection: 'row',
@@ -215,10 +217,24 @@ export default class CustomerProfile extends Component {
       borderRadius:30,
       backgroundColor: "#00BFFF",
     },
+    address_container:{
+      flex:1,
+      marginTop:10,
+      height:100,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom:20,
+      width:250,
+      borderRadius:30,
+      backgroundColor: "#00BFFF",
+    },
     edit_button:{
         borderRadius:10,
         backgroundColor:'grey',
-        padding:5
+        padding:5,
+        width:40,
+        alignItems:'center',
         
     },
    
@@ -238,7 +254,7 @@ export default class CustomerProfile extends Component {
     borderRadius:5,
     marginTop:10,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
    }
 
  

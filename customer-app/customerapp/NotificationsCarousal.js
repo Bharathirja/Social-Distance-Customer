@@ -44,13 +44,14 @@ export class NotificationsCarousal extends Component {
     
 
     _renderItem({item,index}){
-
         return (
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Booking')}}>
           <View style={{
               // backgroundColor:'floralwhite',
               borderRadius: 5,
-              height: 300,
+              height: 200,
+              marginBottom:10,
+         
               // padding: 20,
             //   marginLeft: 25,
             //   marginRight: 25,
@@ -87,6 +88,8 @@ const styles = StyleSheet.create({
   image:{
     flex: 1,
         alignSelf: 'stretch',
+        borderRadius:20,
+     
       
     }
 

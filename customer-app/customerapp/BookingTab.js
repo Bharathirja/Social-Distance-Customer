@@ -10,6 +10,7 @@ function ActiveScreen() {
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
         <Card
+        containerStyle={{height:163}}
             title='8-08-2020' 
             titleStyle={styles.cardTitle}
         >
@@ -24,6 +25,8 @@ function ActiveScreen() {
         <Card
             title='31-09-2020'
             titleStyle={styles.cardTitle}
+        containerStyle={{height:163}}
+
         >
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
@@ -31,6 +34,8 @@ function ActiveScreen() {
       
         </Card>
         <Card
+        containerStyle={{height:163}}
+
             title='3-10-2020'
             titleStyle={styles.cardTitle}
         >
@@ -40,6 +45,8 @@ function ActiveScreen() {
     
         </Card>
         <Card
+        containerStyle={{height:150}}
+
             title='3-10-2020'
             titleStyle={styles.cardTitle}
         >
@@ -48,6 +55,8 @@ function ActiveScreen() {
         </Text>
         </Card>
         <Card
+        containerStyle={{height:150}}
+
             title='13-10-2020'
             titleStyle={styles.cardTitle}
         >
@@ -67,6 +76,8 @@ function ActiveScreen() {
                  <Card
             title='3-10-2020'
             titleStyle={styles.cardTitle}
+        containerStyle={{height:163}}
+
         >
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
@@ -76,6 +87,8 @@ function ActiveScreen() {
         <Card
             title='8-08-2020' 
             titleStyle={styles.cardTitle}
+        containerStyle={{height:163}}
+
         >
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date
@@ -85,6 +98,8 @@ function ActiveScreen() {
         <Card
             title='31-09-2020'
             titleStyle={styles.cardTitle}
+        containerStyle={{height:163}}
+
         >
         <Text style={{marginBottom: 10}}>
             Here we shows that something about the description of booking on this date

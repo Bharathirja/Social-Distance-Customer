@@ -89,10 +89,19 @@ export class Dashboard extends Component {
                </View>
            </View>
            <View style={styles.offers}>
+               <View style={{alignItems:'center'}}>
+                
+               <Text style={{fontSize:20,fontWeight:'bold',color:'tomato'}}>Offers</Text>
+               </View>
                  <OfferCarousal/>
 
            </View>
            <View style={styles.notifications}>
+           <View style={{alignItems:'center'}}>
+                
+                <Text style={{fontSize:20,fontWeight:'bold',color:'tomato'}}>Notifications</Text>
+                </View>
+
            <NotificationsCarousal/>
 
            </View>
@@ -134,8 +143,10 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     welcome:{
-        flex:4,
+        flex:3,
         backgroundColor:'#4444ff',
+        // backgroundColor:'tomato',
+
         width:'100%',
         // justifyContent:'center',
         // alignItems:'center',
@@ -143,7 +154,7 @@ const styles = StyleSheet.create({
     },
     offers:{
         flex:3,
-        marginTop:10,
+        // marginTop:10,
         padding:10
 
 
@@ -152,8 +163,9 @@ const styles = StyleSheet.create({
     },
     notifications:{
         flex:3,
-        marginTop:10,
-        padding:10
+        // marginTop:10,
+        padding:10,
+        marginBottom:15
 
 
 

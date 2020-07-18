@@ -41,8 +41,8 @@ export class OfferCarousal extends Component {
             <TouchableOpacity onPress={()=>Alert.alert(item.text)}>
           <View style={{
               // backgroundColor:'floralwhite',
-              borderRadius: 5,
-              height: 300,
+              borderRadius:30,
+              height: 200,
               // padding: 20,
             //   marginLeft: 25,
             //   marginRight: 25,
@@ -76,7 +76,9 @@ export class OfferCarousal extends Component {
 const styles = StyleSheet.create({
   image:{
     flex: 1,
-        alignSelf: 'stretch',
+        // alignSelf: 'stretch',
+        borderRadius:20,
+
       
     }
 

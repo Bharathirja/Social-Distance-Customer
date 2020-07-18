@@ -1,11 +1,11 @@
 import React, {useState}from 'react';
-import { StyleSheet, Text, View, Button,TextInput, } from 'react-native';
+import { StyleSheet, Text, View, Button,TextInput,} from 'react-native';
 import Login from './customerapp/Login';
 import Listscroll from './reactnative-tut/listscroll'
 import Inlinestyle from './reactnative-tut/inlinestyle';
 import Otpscreen from './customerapp/otpscreen';
 // import Navigator from '../routes/homestack';
-import {Router, Scene,ActionConst} from 'react-native-router-flux';
+import {Router, Scene,ActionConst,Tabs} from 'react-native-router-flux';
 import Registerscreen from './customerapp/registerscreen';
 import Menutabscreen from './customerapp/menutabscreen';
 import Homeprofile from './customerapp/homeprofile';
@@ -16,26 +16,33 @@ import BookingScreen from './customerapp/bookingscreen'
 
 export default function App() {
   const[mobno,setMobno] = useState('');
+
  
   return (
+ 
+
     <View style={[styles.container,{flex:1}]}> 
      <Router >
       <Scene key="root" navigationBarStyle={{ backgroundColor: '#4444ff' }}>
+              
 
         <Scene
         key="login"
         component={Login}
         // title="login"
         initial
+        type={ActionConst.RESET}
+        hideNavBar={true}
+
 
         />
 
         <Scene
         key="otpscreen"
         component={Otpscreen}
-        title="OTP Registration"
         type={ActionConst.RESET}
         hideNavBar={true} 
+      
         />  
 
         <Scene
@@ -47,35 +54,10 @@ export default function App() {
         <Scene
         key="menu"
         component={Homeprofile}
-        // title="Home"
-        type={ActionConst.RESET}
-        /> 
+        // title='Home'
+        // renderBackButton={()=>(null)}
+        renderLeftButton={()=>(null)}
 
-<Scene
-        key="menutab"
-        component={Menutabscreen}
-        title="tab"
-        /> 
-           <Scene
-        key="offer"
-        component={Offer}
-        // title="Home"
-        /> 
-                <Scene
-        key="welcome"
-        component={Welcome}
-        // title="Home"
-        /> 
-                <Scene
-        key="notification"
-        component={Notification}
-        // title="Home"
-        /> 
-
-      <Scene
-        key="booking"
-        component={Homeprofile}
-        // title="Home"
         /> 
       </Scene>
 

@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     fontSize:20,
     borderBottomWidth:1,
-    marginLeft:5
 
   },
   app_details:{
@@ -114,7 +113,6 @@ const styles = StyleSheet.create({
   },
   textinput:{
     height:30,
-    width:180,
     fontSize:18,
     borderBottomWidth:1,
     padding:5,
