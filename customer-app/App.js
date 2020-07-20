@@ -52,11 +52,14 @@ export default function App() {
         /> 
 
         <Scene
+        navigationBarStyle={{ backgroundColor: 'tomato' }}
         key="menu"
         component={Homeprofile}
         // title='Home'
         // renderBackButton={()=>(null)}
-        renderLeftButton={()=>(null)}
+        // renderLeftButton={()=>(null)}
+        hideNavBar={true}
+
 
         /> 
       </Scene>

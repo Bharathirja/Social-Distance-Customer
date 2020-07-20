@@ -13,6 +13,7 @@ import {Actions} from "react-native-router-flux";
 import BookingScreen from './homeprofile';
 import NotificationsCarousal from './NotificationsCarousal';
 import OfferCarousal from './OfferCarousal';
+import { Title } from 'react-native-paper';
 
 
 
@@ -77,6 +78,9 @@ export class Dashboard extends Component {
 
         //   </View>
         <View style={styles.container}>
+            <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,alignItems:'center'}}>
+                <Title style={{marginTop:25}}>Home</Title>
+                </View>
            <View style={styles.welcome}>
                <View style={styles.welcontent}>
                <Text style={{fontSize:40}}>GoodMorning!!!</Text>
@@ -115,27 +119,6 @@ export class Dashboard extends Component {
 
 }
 
-
-// const AppNavigator  = createStackNavigator({
-    // offer: { screen: Offer},
-    // SecondPage: { screen: SecondPage},
-
-//   });
-
-//   const Stack = createStackNavigator();
-  
-  
-//   function App() {
-//     return (
-//       <NavigationContainer>
-//         <Stack.Navigator>
-//           <Stack.Screen name="offer" component={Offer} />
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     );
-//   }
-  
-
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -144,7 +127,7 @@ const styles = StyleSheet.create({
     },
     welcome:{
         flex:3,
-        backgroundColor:'#4444ff',
+        // backgroundColor:'#4444ff',
         // backgroundColor:'tomato',
 
         width:'100%',

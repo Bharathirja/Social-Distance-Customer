@@ -31,6 +31,8 @@ import BookingModel from './BookingModel'
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CustomerProfile from './CustomerProfile';
+import { Title } from 'react-native-paper';
+
 
 
 
@@ -47,6 +49,7 @@ YellowBox.ignoreWarnings([
 function HomeScreen(){
     
     return (
+     
       <Dashboard />
     )
 
@@ -59,6 +62,16 @@ function BookingScreen(){
     return(
       
         <View style={styles.booking_container}>
+                <View style={{
+                height:'10%',
+                backgroundColor:'tomato',
+                width:'100%',
+                justifyContent:'center',
+                padding:10,
+                alignItems:'center'
+                }}>
+                <Title style={{marginTop:25}}>Booking</Title>
+        </View>
             <View style={styles.booking_tab}>
                 <BookingTab/>
             </View>
@@ -101,11 +114,7 @@ function BookingScreen(){
 function ProfileScreen () {
 
     return (
-        <View> 
             <CustomerProfile/>
-
-        </View> 
-     
     )
 
 }
@@ -114,8 +123,10 @@ function ProfileScreen () {
 function AboutScreen(){
     
         return (
-            <View style={{  justifyContent: 'center', }}>
-                <Text style={{fontSize:20,paddingLeft:5}}>About Us</Text>
+            <View style={styles.container}>
+                <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,alignItems:'center'}}>
+                <Title style={{marginTop:25}}>About</Title>
+                </View>
                 <View>
                     <Text style={{paddingLeft:35,marginTop:10}}>
                         In 2017 we started,We are the leading experts in that service, we are done and doing so many
@@ -232,6 +243,11 @@ const styles = StyleSheet.create({
         alignItems:'center',
         borderColor:'blue',
 
+    },
+    container:{
+        flex:1,
+        justifyContent:'flex-start',
+        alignItems:'center',
     }
 
 
@@ -240,11 +256,10 @@ const styles = StyleSheet.create({
 
 })
 
-const Tab = createBottomTabNavigator();
-export default function App() {
-    return (
-      <NavigationContainer>
-        <Tab.Navigator
+const AppTabs = createBottomTabNavigator();
+const AppTabsScreen=()=> (
+    
+        <AppTabs.Navigator
           initialRouteName="Home"
           barStyle={{ backgroundColor: 'tomato' }}
           tabBarOptions={{
@@ -262,19 +277,13 @@ export default function App() {
         
        
         >
-        <Tab.Screen 
+        <AppTabs.Screen 
             component={HomeScreen}
             name="Home"
      
             
             options={{
-                navigationOptions: {
-                    title: 'Work Orders'
-                    // You can check more options here: https://reactnavigation.org/docs/en/bottom-tab-navigator.html#navigationoptions-for-screens-inside-of-the-navigator
-                  },
-                
-             headerTitle:'Home',
-            title: 'My profile',
+              
             headerBackTitle: null,
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
@@ -286,8 +295,8 @@ export default function App() {
         }}
         />
 
-          <Tab.Screen 
-          name="BookingScreen" 
+          <AppTabs.Screen 
+          name="Booking" 
           component={BookingScreen} 
      options={{
                 title:'Home',
@@ -300,8 +309,8 @@ export default function App() {
                
                 />
 
-          <Tab.Screen 
-          name="ProfileScreen" 
+          <AppTabs.Screen 
+          name="Profile" 
           component={ProfileScreen} 
           options={{
             tabBarLabel: 'Profile',
@@ -315,8 +324,8 @@ export default function App() {
             }}
         />
 
-          <Tab.Screen 
-          name="AboutScreen" 
+          <AppTabs.Screen 
+          name="About" 
           component={AboutScreen}
           options={{
             tabBarLabel: 'About',
@@ -327,10 +336,16 @@ export default function App() {
             }}
         />
 
-        </Tab.Navigator>
-      </NavigationContainer>
-    );
-  }
+        </AppTabs.Navigator>
+        )
+
+    export default ()=>(
+        <NavigationContainer>
+        <AppTabsScreen/>
+    </NavigationContainer>
+    )
+    
+    
+  
   
 
-// export default createAppContainer(Tab);

@@ -44,11 +44,21 @@ const BookingModel = (props) => {
         }}
       >
         <View style={styles.centeredView}>
+       
           <View style={styles.modalView}>
+
+                  <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',width:'100%'}}>
+                  <TouchableHighlight
+                        onPress={() => {
+                          setModalVisible(!modalVisible);
+                        }}
+                  >
+                  <Icon  size={35}  name={'ios-close-circle-outline'}></Icon>
+                  </TouchableHighlight>
+                  </View>
+
               <View style={{flex:17,padding:5,marginTop:3}}>
-                  {/* <View style={{flex:1,width:300}}>
-                      <Text>Enter the details below</Text>
-                  </View> */}
+                
                   <View style={{flex:10,width:300}}>
                             <Text style={{marginLeft:10,color:'blue',fontWeight:"bold"}}>
                                 For booking enter the details below
@@ -94,7 +104,7 @@ const BookingModel = (props) => {
                                 
                                 <TextInput style = {styles.input}
                                 underlineColorAndroid = "transparent"
-                                value={DatePickerIOSComponent}
+                                // value={date}
                                 placeholder = "date"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
@@ -104,16 +114,16 @@ const BookingModel = (props) => {
                                 
                                 <TextInput style = {styles.input}
                                 underlineColorAndroid = "transparent"
-                                value={time}
+                                // value={time}
                                 placeholder = "time"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
                                 maxLength={50}
                                 />
 
-                                <TextInput style = {styles.input}
+                                <TextInput style = {{...styles.input,height:200,justifyContent:'flex-start',textAlignVertical: 'top'}}
                                 underlineColorAndroid = "transparent"
-                                value={description}
+                                // value={description}
                                 placeholder = "Description"
                                 placeholderTextColor = "#9a73ef"
                                 autoCapitalize = "none"
@@ -131,7 +141,7 @@ const BookingModel = (props) => {
               }}
             >
 
-              <Text style={styles.textStyle}>Close</Text>
+              <Text style={styles.textStyle}>submit</Text>
             </TouchableHighlight>
             </View>
           </View>
@@ -165,7 +175,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    padding:15,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -206,7 +216,8 @@ const styles = StyleSheet.create({
     borderColor: '#7a42f4',
     borderWidth: 1,
     padding:5,
-    marginLeft:10
+    marginLeft:10,
+    fontSize:15
  },
  add_view:{
   flex:1,
@@ -221,7 +232,8 @@ const styles = StyleSheet.create({
   alignItems:'center',
   justifyContent:'center',
   borderRadius:35,
- }
+ },
+ 
 
 });
 
