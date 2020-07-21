@@ -5,10 +5,10 @@ import {StyleSheet,
         ScrollView,
         Image,
         TouchableOpacity, 
-        Button,
         Modal,
         TouchableHighlight,
         TextInput,
+        Alert,
         } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
@@ -16,7 +16,7 @@ import { Card } from 'react-native-elements'
 // import { Input,label } from 'react-native-elements';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import { Title } from 'react-native-paper';
-import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
+import { Container, Button, Content, Form, Item, Input, Label } from 'native-base';
 
 
 
@@ -29,23 +29,39 @@ export default class CustomerProfile extends Component {
     super(props)
   
     this.state = {
+      showsubmit:false,
+      inputedit:false,
       isVisible: false,
       // state:false,
       name:'saravanan',
       phonenumber:'875444875',
       email:'frdstomail@gmail.com',
-      address:'chennai',  
+      address:'30,linkuproad\nmaduvinkarai,chennai,600032',  
+    }
+    this.editForm = this.editForm.bind(this)
+    this.submit = this.submit.bind(this)
+  }
 
+  
+
+  
+  editForm(){
+    if(this.state.name !==''||this.state.phonenumber!==''||this.state.email!==''||this.state.address!=='')
+    {
+        this.setState({inputedit:true})
+        this.setState({showsubmit:true})
+    }else
+    {
+        return
     }
   }
-
-  inputEditable(){
-    console.log('unlock editable')
+  submit(){
+    Alert.alert('edited successfully')
   }
+
 
 
   render(){
-    const {name,phonenumber,email,address}= this.state
     return (
       // <ScrollView style={styles.container}>
       //     <View style={styles.header}>
@@ -83,7 +99,7 @@ export default class CustomerProfile extends Component {
                 width:'100%',
                 justifyContent:'center',
                 padding:10,
-                alignItems:'center'
+                // alignItems:'center'
                 }}>
                 <Title style={{marginTop:25}}>Profile</Title>
         </View>
@@ -92,32 +108,48 @@ export default class CustomerProfile extends Component {
           <Image style={styles.image} source={require('../assets/saravanan_sir.jpg')}/>
           </View>
           <View style={styles.image_upload_icon}>
-            <Icon  size={48} color={'blue'} name={'md-add-circle-outline'} style={{color:"#41444B"}}></Icon>
+            <Icon  size={48} color={'blue'} name={'md-camera'} style={{color:"grey"}}></Icon>
+          </View>
+          <View style={styles.edit_container}
+          >
+           <Icon style={styles.edit_Icon} size={25} name={'md-create'} onPress={()=>{this.editForm()}}></Icon>
           </View>
           <View style={styles.input_container}>
           <Content>
           <Form>
             <Item stackedLabel>
-              <Label style={styles.label}>Name</Label>
-              <Input/>
+              <Label style={styles.label} >Name</Label>
+              <Input editable={this.state.inputedit}  value={this.state.name}
+              ref={"nameref"}/>
             </Item>
             <Item stackedLabel >
-              <Label style={styles.label}>Phone number</Label>
-              <Input />
+              <Label style={styles.label} >Phone number</Label>
+              <Input editable={this.state.inputedit} value={this.state.phonenumber}
+              keyboardType='numeric'/>
             </Item>
             <Item stackedLabel >
-              <Label style={styles.label}>Email</Label>
-              <Input />
+              <Label style={styles.label} >Email</Label>
+              <Input editable={this.state.inputedit} value={this.state.email}/>
             </Item>
             <Item stackedLabel >
               <Label style={styles.label}>Address</Label>
-              <Input multiline={true} />
+              <Input multiline={true} editable={this.state.inputedit} value={this.state.address}/>
             </Item>
           </Form>
           </Content>
           </View>
           <View style={styles.footer_view}>
-
+          {this.state.showsubmit?(
+              <Button 
+              primary 
+              style={{borderRadius:15,height:38,padding:10}}
+            
+              onPress={()=>this.submit()}
+              >
+                <Text style={{color:'white'}}> Submit</Text>
+                </Button>):null}
+        
+      
           </View>
 
         </View>
@@ -130,6 +162,7 @@ export default class CustomerProfile extends Component {
   }
 }
 
+
   const styles = StyleSheet.create({
 
     container:{
@@ -139,7 +172,7 @@ export default class CustomerProfile extends Component {
       flex:1,
     },
     image_container:{
-        flex:0.9,
+        flex:1,
         alignSelf:'center',
         justifyContent:'center',
     },
@@ -155,8 +188,8 @@ export default class CustomerProfile extends Component {
       position:'absolute',
       width:60,
       height:60,
-      right:'31%',
-      top:'17%',
+      right:'34%',
+      top:'14%',
       alignItems:'center',
       justifyContent:'center',
 
@@ -168,12 +201,31 @@ export default class CustomerProfile extends Component {
     label:{
       color:'blue',
     },
-    // footer_view:{
-    //   flex:1,
-    //   // backgroundColor:'red',
-    //   position:'relative',
-    //   // marginBottom:'10%'
-    // }
+    edit_container:{
+      padding:20,
+      flexDirection:'row',
+      justifyContent:'flex-end',
+      alignItems:'center',
+    },
+
+    edit_Icon:{
+      // padding:6,
+      backgroundColor:'tomato',
+        marginRight:25,
+        width:40,
+        height:40,
+        borderRadius:30,
+        textAlign:'center',
+        lineHeight:40
+    },
+
+    footer_view:{
+      // backgroundColor:'red',
+      flex:1,
+      width:'100%',
+      justifyContent:'center',
+      alignItems:'center',
+    }
    
     // image_view:{
     //   padding:10,

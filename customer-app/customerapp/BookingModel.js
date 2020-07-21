@@ -21,9 +21,6 @@ const BookingModel = (props) => {
   const [description, setDescription] = useState('');
 
 
-
-
-
   const onDateChange=(date)=>{
       console.log(date)
       setDate(date);
@@ -169,7 +166,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 5
+    marginTop: 5,
   },
   modalView: {
     margin: 20,

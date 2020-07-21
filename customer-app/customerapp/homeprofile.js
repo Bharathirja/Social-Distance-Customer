@@ -68,7 +68,7 @@ function BookingScreen(){
                 width:'100%',
                 justifyContent:'center',
                 padding:10,
-                alignItems:'center'
+                // alignItems:'center'
                 }}>
                 <Title style={{marginTop:25}}>Booking</Title>
         </View>
@@ -124,7 +124,7 @@ function AboutScreen(){
     
         return (
             <View style={styles.container}>
-                <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,alignItems:'center'}}>
+                <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,}}>
                 <Title style={{marginTop:25}}>About</Title>
                 </View>
                 <View>

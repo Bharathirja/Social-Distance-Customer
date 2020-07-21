@@ -78,7 +78,7 @@ export class Dashboard extends Component {
 
         //   </View>
         <View style={styles.container}>
-            <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,alignItems:'center'}}>
+            <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,}}>
                 <Title style={{marginTop:25}}>Home</Title>
                 </View>
            <View style={styles.welcome}>
