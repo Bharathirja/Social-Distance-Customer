@@ -68,9 +68,10 @@ function BookingScreen(){
                 width:'100%',
                 justifyContent:'center',
                 padding:10,
+                fontWeight:'bold',color:'white',
                 // alignItems:'center'
                 }}>
-                <Title style={{marginTop:25}}>Booking</Title>
+                <Title style={{marginTop:25,fontWeight:'bold',color:'white',}}>Booking</Title>
         </View>
             <View style={styles.booking_tab}>
                 <BookingTab/>
@@ -83,9 +84,6 @@ function BookingScreen(){
     )
 
 }
-
-        
-    
 
 
 // function ProfileScreen () {
@@ -125,7 +123,7 @@ function AboutScreen(){
         return (
             <View style={styles.container}>
                 <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,}}>
-                <Title style={{marginTop:25}}>About</Title>
+                <Title style={{marginTop:25,fontWeight:'bold',color:'white',}}>About</Title>
                 </View>
                 <View>
                     <Text style={{paddingLeft:35,marginTop:10}}>
@@ -141,10 +139,7 @@ function AboutScreen(){
                     <Text style={{paddingLeft:35,marginTop:10}}>
                      Thank you  
                     </Text>
-
-
                 </View>
-
             </View>
          
         )
@@ -264,9 +259,11 @@ const AppTabsScreen=()=> (
           barStyle={{ backgroundColor: 'tomato' }}
           tabBarOptions={{
             activeTintColor: 'tomato',
-            inactiveTintColor: 'white',
+            inactiveTintColor: '#808080',
             style: {
-                backgroundColor: '#694fad',
+                backgroundColor: 'white',
+                // backgroundColor: '#694fad',
+
               },
 
               labelStyle: {        

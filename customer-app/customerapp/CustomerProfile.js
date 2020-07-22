@@ -63,35 +63,6 @@ export default class CustomerProfile extends Component {
 
   render(){
     return (
-      // <ScrollView style={styles.container}>
-      //     <View style={styles.header}>
-      //     <Image style={styles.avatar} source={require('../assets/saravanan_sir.jpg')}/>
-      //     </View>
-      //     <View style={styles.body}>
-      //       <View style={styles.bodyContent}>
-      //       <TouchableOpacity style={styles.edit_button} onPress = {() =>this.inputEditable}>
-      //       <Icon  size={20} name={'md-create'}></Icon>
-      //         </TouchableOpacity>
-      //         <TouchableOpacity style={styles.buttonContainer}>
-      //           <Text style={{flexDirection:'row'}}>Name:</Text>  
-      //         </TouchableOpacity>
-      //         <TouchableOpacity style={styles.buttonContainer}>
-      //           <Text>Phone Number : 875444875</Text>  
-      //         </TouchableOpacity>
-      //         <TouchableOpacity style={styles.buttonContainer}>
-      //           <Text>Email : frdstomail@gmail.com</Text>  
-      //         </TouchableOpacity>
-      //         <TouchableOpacity style={styles.address_container}>
-      //           <Text>Address :30,linkup road</Text>
-      //           <Text>maduvinkari</Text>  
-      //           <Text>Chennai</Text>  
-      //         </TouchableOpacity>
-                             
-      //       </View>
-
-      //   </View>
-      // </ScrollView>   
-      
     <View style={styles.container}>
       <View style={{
                 height:'10%',
@@ -101,7 +72,7 @@ export default class CustomerProfile extends Component {
                 padding:10,
                 // alignItems:'center'
                 }}>
-                <Title style={{marginTop:25}}>Profile</Title>
+                <Title style={{marginTop:25,fontWeight:'bold',color:'white',}}>Profile</Title>
         </View>
         <View style={styles.profile_container}>
           <View style={styles.image_container}>
@@ -133,7 +104,7 @@ export default class CustomerProfile extends Component {
             </Item>
             <Item stackedLabel >
               <Label style={styles.label}>Address</Label>
-              <Input multiline={true} editable={this.state.inputedit} value={this.state.address}/>
+              <Input style={{paddingTop:10}} multiline={true} editable={this.state.inputedit} value={this.state.address}/>
             </Item>
           </Form>
           </Content>
@@ -148,8 +119,6 @@ export default class CustomerProfile extends Component {
               >
                 <Text style={{color:'white'}}> Submit</Text>
                 </Button>):null}
-        
-      
           </View>
 
         </View>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Alert,
-  Modal,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -12,6 +11,7 @@ import {
 import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/Ionicons';
 import BookingTime from './bookingTime'
+import Modal from "react-native-modal";
 
 const BookingModel = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,13 +33,14 @@ const BookingModel = (props) => {
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
+        // animationType="fade"
+        // transparent={true}
+        isVisible={modalVisible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}
       >
+    
         <View style={styles.centeredView}>
        
           <View style={styles.modalView}>

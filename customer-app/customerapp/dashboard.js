@@ -24,62 +24,11 @@ export class Dashboard extends Component {
       }
    
     render() {
-          
-        // const {navigate} =this.props.navigation;
         return (
-        //     <View>
-        //   <View style={styles.card}>
-        //       <View style={styles.cardContent} >
-        //           <View >
-        //               <TouchableOpacity 
-        //                onPress={()=>Actions.welcome()}>
-
-        //               <Image
-        //       source={require("../assets/welcome.jpg")}
-        //       style={{
-        //         height: 200,
-        //         width:373,
-        //         borderRadius:5
-        //         // width: 155
-        //       }}
-      
-        //     />
-        //               </TouchableOpacity>
-           
-
-        //           </View>
-        //       </View>
-        //   </View>
-
-        //       <View style={styles.card}>
-        //       <View style={styles.cardContent}>
-        //       <View>
-        
-        //           <OfferCarousal/>
-           
-        //           </View>
-        //       </View>
-        //   </View>
-
-          
-        //   <View style={styles.card}>
-        //       <View style={styles.cardContent}>
-        //       <View>
-         
-        //     <NotificationsCarousal/>
-            
-                 
-        //           </View>
-        //       </View>
-        //   </View>
-
-
        
-
-        //   </View>
         <View style={styles.container}>
             <View style={{height:'10%',backgroundColor:'tomato',width:'100%',justifyContent:'center',padding:10,}}>
-                <Title style={{marginTop:25}}>Home</Title>
+                <Title style={{marginTop:25,fontWeight:'bold',color:'white'}}>Home</Title>
                 </View>
            <View style={styles.welcome}>
                <View style={styles.welcontent}>
@@ -128,7 +77,11 @@ const styles = StyleSheet.create({
     welcome:{
         flex:3,
         // backgroundColor:'#4444ff',
-        // backgroundColor:'tomato',
+        backgroundColor:'tomato',
+        borderBottomLeftRadius:50,
+        borderBottomRightRadius:50,
+
+
 
         width:'100%',
         // justifyContent:'center',
