@@ -20,10 +20,37 @@ import { Title } from 'react-native-paper';
 export class Dashboard extends Component {
     constructor() {
         super();
-    
+        this.state={
+            greeting:''
+        }
       }
+
+
+    componentDidMount(){
+        const renderWelcomeMsg = (currentTime = new Date()) => {
+            const currentHour = currentTime.getHours()
+            const splitAfternoon = 12; // 24hr time to split the afternoon
+            const splitEvening = 17; // 24hr time to split the evening
+          
+            if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
+              // Between 12 PM and 5PM
+              return 'Good afternoon';
+            } else if (currentHour >= splitEvening) {
+              // Between 5PM and Midnight
+              return 'Good evening';
+            }
+            // Between dawn and noon
+            return 'Good morning';
+          }
+        let Time = renderWelcomeMsg()
+        this.setState({greeting:Time})
+        
+    }
+
+    
    
     render() {
+
         return (
        
         <View style={styles.container}>
@@ -31,15 +58,11 @@ export class Dashboard extends Component {
                 <Title style={{marginTop:25,fontWeight:'bold',color:'white'}}>Home</Title>
                 </View>
            <View style={styles.welcome}>
-               <View style={styles.welcontent}>
-               <Text style={{fontSize:40}}>GoodMorning!!!</Text>
-               </View>
-               <View style={styles.namecontent}>
-                   <Text style={{fontSize:25}}>Mr.saravanan</Text>
-               </View>
-               <View style={styles.infocontent}>
-               <Text style={{fontSize:20}}>Our offer was almost reasonable. </Text>
-               </View>
+                <View style={styles.welcontent}>
+                <Text style={{fontSize:30}}>{this.state.greeting} !!!</Text>
+                        <Text style={{fontSize:25,textAlign:'center'}}>Mr.saravanan</Text>
+                    <Text style={{fontSize:15,textAlign:'center',marginVertical:10}}>Our offer was almost reasonable. </Text>
+                </View>
            </View>
            <View style={styles.offers}>
                <View style={{alignItems:'center'}}>
@@ -80,12 +103,11 @@ const styles = StyleSheet.create({
         backgroundColor:'tomato',
         borderBottomLeftRadius:50,
         borderBottomRightRadius:50,
-
-
-
+        // backgroundColor:'white',
         width:'100%',
-        // justifyContent:'center',
-        // alignItems:'center',
+        // height:'30%',
+        justifyContent:'center',
+        alignItems:'center',
         
     },
     offers:{
@@ -104,12 +126,20 @@ const styles = StyleSheet.create({
         marginBottom:15
 
 
-
-
     },
     welcontent:{
-        flex:1,
-        padding:10
+        // flex:1,
+        padding:10,
+        backgroundColor:'white',
+        width:'80%',
+        height:'70%',
+        // borderTopLeftRadius:20,
+        // borderTopRightRadius:20
+        borderRadius:20,
+        borderColor:'white', // if you need 
+        borderWidth:10,
+     
+
     },
     namecontent:{
         flex:1,
