@@ -34,20 +34,17 @@ export class Dashboard extends Component {
           
             if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
               // Between 12 PM and 5PM
-              return 'Good afternoon';
+              return 'Good Afternoon';
             } else if (currentHour >= splitEvening) {
               // Between 5PM and Midnight
-              return 'Good evening';
+              return 'Good Evening';
             }
             // Between dawn and noon
-            return 'Good morning';
+            return 'Good Morning';
           }
         let Time = renderWelcomeMsg()
         this.setState({greeting:Time})
-        
     }
-
-    
    
     render() {
 
@@ -59,7 +56,10 @@ export class Dashboard extends Component {
                 </View>
            <View style={styles.welcome}>
                 <View style={styles.welcontent}>
-                <Text style={{fontSize:30}}>{this.state.greeting} !!!</Text>
+                    <View style={{flexDirection:'row'}}>
+                    <Text style={{fontSize:30}}>{this.state.greeting}</Text>
+                    <Image style={styles.welcome_icon} source={require('../assets/call-center-agent.png')} size={10}/>
+                    </View>
                         <Text style={{fontSize:25,textAlign:'center'}}>Mr.saravanan</Text>
                     <Text style={{fontSize:15,textAlign:'center',marginVertical:10}}>Our offer was almost reasonable. </Text>
                 </View>
@@ -127,6 +127,12 @@ const styles = StyleSheet.create({
 
 
     },
+    welcome_icon:{
+        height:30,
+        width:30,
+        marginLeft:10
+        
+    },
     welcontent:{
         // flex:1,
         padding:10,
@@ -137,8 +143,7 @@ const styles = StyleSheet.create({
         // borderTopRightRadius:20
         borderRadius:20,
         borderColor:'white', // if you need 
-        borderWidth:10,
-     
+        // borderWidth:10,
 
     },
     namecontent:{
